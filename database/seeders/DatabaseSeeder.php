@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
-        if(env('APP_ENV') === 'local'){
+        if (env('APP_ENV') === 'local') {
             User::factory(10)->create();
         }
 
@@ -81,6 +81,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Opción 1',
             'type' => 'internal_link',
             'link' => '#',
+            'parent_id' => 5,
             'lft' => 11,
             'rgt' => 12,
             'depth' => 2,
@@ -91,6 +92,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Opción 2',
             'type' => 'internal_link',
             'link' => '#',
+            'parent_id' => 5,
             'lft' => 13,
             'rgt' => 14,
             'depth' => 2,
