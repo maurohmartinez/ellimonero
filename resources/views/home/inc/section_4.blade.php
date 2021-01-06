@@ -5,7 +5,7 @@
             <div class="low-text-contrast">Lorem, ipsum dolor sit amet consectetur elit. Ipsa, reprehenderit saepe, velit minima amet rem facere.</div>
         </div>
     </div>
-    <div class="container is-wide flexh-align-center">
+    <div class="container is-wide flexh-align-center" style="padding: 0px;">
         <div class="col lg-4 sm-12 lg-md-no-padding-lr sm-margin-bottom-double">
             <div class="text-align-center">
                 <img src="https://npr.brightspotcdn.com/dims4/default/c7a0278/2147483647/strip/true/crop/1280x853+0+0/resize/880x586!/quality/90/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Flegacy%2Fsites%2Fkstx%2Ffiles%2F201810%2Fpexels-rock-guitar.jpeg" alt="" class="margin-bottom-double">
