@@ -16,11 +16,18 @@ Xs​ screens between 479 and 240 pixels
     transition: background-color .5s;
     top: 0;
     position: fixed;
+
     &.solid {
         background-color: $main-color;
     }
 }
 
-.bg-primary{
+.bg-primary {
     background-color: $main-color;
+}
+
+@mixin transition-primary($property: all) {
+    transition-property: $property;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-out;
 }

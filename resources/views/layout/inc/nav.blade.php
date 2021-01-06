@@ -2,7 +2,7 @@
     <div class="navigation-overlay"></div>
     <div class="navigation-and-offcanvas">
         <div class="col lg-2 md-basis-auto md-order-first no-margin-bottom-lg">
-            <a href="index.html" class="brand justify-left w-inline-block w--current">
+            <a href="{{ route('home') }}" class="brand justify-left w-inline-block w--current">
                 <!-- <img src="images/-asset-zuma-dark.svg" alt=""> -->
                 <h4 class="on-dark">El Limonero</h4>
             </a>

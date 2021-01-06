@@ -42,17 +42,19 @@
                     <span class="w-form-label">Recordarme</span>
                 </label>
 
-                <input type="submit" value="Ingresar" data-wait="Please wait..." class="button-primary lg-md-margin-right sm-w100 w-button">
-
-                <a href="#" class="button-primary bg-primary lg-md-margin-right sm-w100 w-button">Registrarme</a>
+                <div class="d-md-flex">
+                    <button data-wait="Please wait..." class="btn btn-primary btn-block mb-1 mb-md-0" type="submit">Ingresar</button>
+                    <span class="d-none d-md-block">&nbsp;</span>
+                    <a href="#" class="btn btn-outline-primary btn-block mb-1 mb-md-0">Registrarme</a>
+                </div>
 
                 <a href="#" class="text-xsmall">¿Olvidaste tu contraseña?</a>
             </form>
         </div>
-        <div class="col-lg-3 col-md-5 col-12">
+        <div class="col-lg-3 col-md-5 col-12 my-5 my-md-0">
             <h2 class="margin-bottom">Con tu red social</h2>
-            <a href="#" class="button-primary w100 w-button margin-bottom-small"><i class="la la-facebook"></i> Con Facebook</a>
-            <a href="#" class="button-primary w100 w-button"><i class="la la-google"></i> Con Google</a>
+            <a href="#" class="btn btn-facebook btn-block d-flex justify-content-start"><i class="la la-facebook mr-2"></i> Con Facebook</a>
+            <a href="#" class="btn btn-google btn-block d-flex justify-content-start mt-1"><i class="la la-google mr-2"></i> Con Google</a>
         </div>
     </div>
 </div>
