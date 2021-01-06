@@ -9,6 +9,7 @@
     </div>
 </div>
 <div class="section">
+    <div class="col-12 col-lg-9 col-md-12 mx-auto text-center">@include('flash')</div>
     <div class="container">
         <div class="col-lg-6 col-md-7 col-12 mb-5 offset-lg-1">
             <h2>¿Ya estás registrado?</h2>
@@ -55,8 +56,8 @@
         <div class="col-lg-4 col-md-5 col-12 mb-5 px-4">
             <h3>¡O con tu red social!</h3>
             <p>Iniciá sesión con tu red social o cuenta de google.</p>
-            <a href="#" class="btn btn-facebook btn-block d-flex justify-content-start"><i class="la la-facebook mr-2"></i> Con Facebook</a>
-            <a href="#" class="btn btn-google btn-block d-flex justify-content-start mt-1"><i class="la la-google mr-2"></i> Con Google</a>
+            <a href="{{ route('login.provider', ['provider' => 'facebook']) }}" class="btn btn-facebook btn-block d-flex justify-content-start"><i class="la la-facebook mr-2"></i> Con Facebook</a>
+            <a href="{{ route('login.provider', ['provider' => 'google']) }}" class="btn btn-google btn-block d-flex justify-content-start mt-1"><i class="la la-google mr-2"></i> Con Google</a>
         </div>
     </div>
 </div>
