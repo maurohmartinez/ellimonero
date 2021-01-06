@@ -11,6 +11,14 @@
 		<li class="nav-item"><a class="nav-link" href="{{ backpack_url('tag') }}"><i class="nav-icon la la-tag"></i> Tags</a></li>
 	</ul>
 </li>
+<li class="nav-item nav-dropdown">
+	<a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-newspaper-o"></i>Tienda</a>
+	<ul class="nav-dropdown-items">
+		<li class="nav-item"><a class="nav-link" href="{{ backpack_url('products') }}"><i class="nav-icon la la-newspaper-o"></i> Productos</a></li>
+		<li class="nav-item"><a class="nav-link" href="#" style="color: #C9C9C9 !important;"><i class="nav-icon la la-list" style="color: #C9C9C9 !important;"></i> Categorías</a></li>
+		<li class="nav-item"><a class="nav-link" href="#" style="color: #C9C9C9 !important;"><i class="nav-icon la la-tag" style="color: #C9C9C9 !important;"></i> Tags</a></li>
+	</ul>
+</li>
 
 <li class="nav-title" style="color: #C9C9C9 !important;">APP</li>
 <li class="nav-item"><a class="nav-link" href="#" style="color: #C9C9C9 !important;"><i class="nav-icon la la-home" style="color: #C9C9C9 !important;"></i> <span>Home</span></a></li>

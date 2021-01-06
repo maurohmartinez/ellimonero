@@ -59,6 +59,12 @@ return [
             'driver' => 'local',
             'root'   => storage_path(),
         ],
+        'products' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/products'),
+            'url' => env('APP_URL').'/',
+            'visibility' => 'public',
+        ],
     ],
 
     /*

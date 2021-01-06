@@ -24,10 +24,12 @@ class CreateProductsTable extends Migration
             $table->integer('price');
             $table->integer('price_discount')->nullable();
             $table->integer('price_min')->nullable();
-            $table->text('auction_timeframe')->nullable();
+            $table->date('auction_starts')->nullable();
+            $table->date('auction_ends')->nullable();
             $table->longText('images')->nullable();
             $table->boolean('active');
             $table->boolean('new');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

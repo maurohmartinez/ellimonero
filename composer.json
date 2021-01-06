@@ -17,9 +17,11 @@
         "backpack/pagemanager": "^3.0",
         "backpack/permissionmanager": "^6.0",
         "backpack/settings": "^3.0",
+        "cviebrock/eloquent-sluggable": "^8.0",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "intervention/image": "^2.5",
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5"
     },

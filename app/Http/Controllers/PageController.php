@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Backpack\PageManager\app\Models\Page;
+use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
