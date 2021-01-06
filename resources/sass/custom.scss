@@ -1,0 +1,22 @@
+/*
+Lg​ Screens larger than 992pixels
+// @media only screen and (min-width: 992px) {}
+
+Md​ screens between 768 and 991 pixels
+// @media only screen and (min-width: 768px) {}
+
+Sm​ screens between 767 and 480 pixels
+// @media only screen and (min-width: 480px) {}
+
+Xs​ screens between 479 and 240 pixels
+// @media only screen and (min-width: 240px) {}
+*/
+
+.navigation-section {
+    transition: background-color .5s;
+    top: 0;
+    position: fixed;
+    &.solid {
+        background-color: $main-color;
+    }
+}
