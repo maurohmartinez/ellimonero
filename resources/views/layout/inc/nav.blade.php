@@ -13,7 +13,7 @@
             </nav>
         </div>
         <div class="col no-margin-bottom lg-2 lg-text-align-right md-basis-auto">
-            <a href="{{ backpack_auth()->check() ? (backpack_user()->is_admin ? route('backpack.dashboard') : '#') : route('backpack.auth.register') }}" class="on-dark">
+            <a href="{{ backpack_auth()->check() ? (backpack_user()->is_admin ? route('backpack.dashboard') : '#') : route('backpack.auth.login') }}" class="on-dark">
                 <i class="las la-user-circle" style="font-size: 25px;"></i>
             </a>
             <div data-w-id="19441b04-6667-8112-1ac3-50ce8ef78c65" class="c-cart">

@@ -10,34 +10,37 @@
 </div>
 <div class="section">
     <div class="container">
-        <div class="col-lg-8 col-md-7 col-12">
-            <h2 class="margin-bottom">Ingresá</h2>
-            <form role="form" method="POST" action="{{ route('backpack.auth.login') }}">
+        <div class="col-lg-6 col-md-7 col-12 mb-5 offset-lg-1">
+            <h2>¿Ya estás registrado?</h2>
+            <p class="mb-1">Iniciá sesión con tu email y contraseña.</p>
+            <a href="{{ route('backpack.auth.password.reset') }}">¿Olvidaste tu contraseña?</a>
+
+            <form role="form" method="POST" class="mt-4" action="{{ route('backpack.auth.login') }}">
                 {!! csrf_field() !!}
 
-                <label class="control-label" for="{{ $username }}">{{ config('backpack.base.authentication_column_name') }}</label>
+                <label class="control-label" for="email">Correo electrónico</label>
 
                 <div>
-                    <input type="text" class="form-input-text w-input{{ $errors->has($username) ? ' is-invalid' : '' }}" name="{{ $username }}" value="{{ old($username) }}" id="{{ $username }}">
-                    @if ($errors->has($username))
-                    <span class="invalid-feedback">
-                        <strong>{{ $errors->first($username) }}</strong>
+                    <input type="text" class="form-input-text mb-2 w-input {{ $errors->has('email') ? 'border border-danger' : '' }}" name="email" value="{{ old('email') }}" id="email">
+                    @if ($errors->has('email'))
+                    <span class="text-danger">
+                        <strong>*{{ $errors->first('email') }}</strong>
                     </span>
                     @endif
                 </div>
 
-                <label class="control-label" for="password">{{ trans('backpack::base.password') }}</label>
+                <label class="control-label mt-4" for="password">{{ trans('backpack::base.password') }}</label>
                 <div>
-                    <input type="password" class="form-input-text w-input{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" id="password">
+                    <input type="password" class="form-input-text mb-2 w-input {{ $errors->has('password') ? 'border border-danger' : '' }}" name="password" id="password">
 
                     @if ($errors->has('password'))
-                    <span class="invalid-feedback">
-                        <strong>{{ $errors->first('password') }}</strong>
+                    <span class="text-danger">
+                        <strong>* {{ $errors->first('password') }}</strong>
                     </span>
                     @endif
                 </div>
 
-                <label class="w-checkbox form-checkbox">
+                <label class="w-checkbox form-checkbox mt-3">
                     <input type="checkbox" name="remember" id="checkbox" name="checkbox" data-name="Checkbox" class="w-checkbox-input">
                     <span class="w-form-label">Recordarme</span>
                 </label>
@@ -45,14 +48,13 @@
                 <div class="d-md-flex">
                     <button data-wait="Please wait..." class="btn btn-primary btn-block mb-1 mb-md-0" type="submit">Ingresar</button>
                     <span class="d-none d-md-block">&nbsp;</span>
-                    <a href="#" class="btn btn-outline-primary btn-block mb-1 mb-md-0">Registrarme</a>
+                    <a href="{{ route('backpack.auth.register') }}" class="btn btn-outline-primary btn-block mb-1 mb-md-0">Registrarme</a>
                 </div>
-
-                <a href="#" class="text-xsmall">¿Olvidaste tu contraseña?</a>
             </form>
         </div>
-        <div class="col-lg-3 col-md-5 col-12 my-5 my-md-0">
-            <h2 class="margin-bottom">Con tu red social</h2>
+        <div class="col-lg-4 col-md-5 col-12 mb-5 px-4">
+            <h3>¡O con tu red social!</h3>
+            <p>Iniciá sesión con tu red social o cuenta de google.</p>
             <a href="#" class="btn btn-facebook btn-block d-flex justify-content-start"><i class="la la-facebook mr-2"></i> Con Facebook</a>
             <a href="#" class="btn btn-google btn-block d-flex justify-content-start mt-1"><i class="la la-google mr-2"></i> Con Google</a>
         </div>
