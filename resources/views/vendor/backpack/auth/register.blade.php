@@ -9,7 +9,9 @@
     </div>
 </div>
 <div class="section">
-    <div class="col-12 col-lg-9 col-md-12 mx-auto text-center">@include('flash')</div>
+    <div class="container">
+        <div class="col-12 col-lg-10 col-md-12 mx-auto text-center">@include('flash')</div>
+    </div>
     <div class="container">
         <div class="col-lg-6 col-md-7 col-12 mb-5 offset-lg-1">
             <h2>¿No tenés una cuenta?</h2>
@@ -21,7 +23,7 @@
                 <div>
                     <input type="text" class="form-input-text w-input mb-2 {{ $errors->has('name') ? 'border border-danger' : '' }}" name="name" value="{{ old('name') }}" id="name">
                     @if ($errors->has('name'))
-                    <span class="text-danger">
+                    <span class="text-danger error-field">
                         <strong>* {{ $errors->first('name') }}</strong>
                     </span>
                     @endif
@@ -31,7 +33,7 @@
                 <div>
                     <input type="text" class="form-input-text w-input mb-2 {{ $errors->has('email') ? 'border border-danger' : '' }}" name="email" value="{{ old('email') }}" id="email">
                     @if ($errors->has('email'))
-                    <span class="text-danger">
+                    <span class="text-danger error-field">
                         <strong>* {{ $errors->first('email') }}</strong>
                     </span>
                     @endif
@@ -42,7 +44,7 @@
                     <input type="password" class="form-input-text w-input mb-2 {{ $errors->has('password') ? 'border border-danger' : '' }}" name="password" id="password">
 
                     @if ($errors->has('password'))
-                    <span class="text-danger">
+                    <span class="text-danger error-field">
                         <strong>* {{ $errors->first('password') }}</strong>
                     </span>
                     @endif
@@ -52,7 +54,7 @@
                     <input type="password" class="form-input-text w-input mb-2 {{ $errors->has('password_confirmation') ? 'border border-danger' : '' }}" name="password_confirmation" id="password_confirmation">
 
                     @if ($errors->has('password_confirmation'))
-                    <span class="text-danger">
+                    <span class="text-danger error-field">
                         <strong>* {{ $errors->first('password_confirmation') }}</strong>
                     </span>
                     @endif

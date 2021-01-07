@@ -16,23 +16,22 @@ use App\Http\Controllers\Auth\RegisterController;
 
 Route::group(
     [
-        'middleware' => 'web',
         'middleware' => config('backpack.base.web_middleware', 'web'),
         'prefix'     => config('backpack.base.route_prefix'),
     ],
     function () {
 
-        Route::get('/login', [LoginController::class, 'showLoginForm'])->name('backpack.auth.login');
-        Route::post('', [LoginController::class, 'customLogin']);
+        Route::get('login', [LoginController::class, 'showLoginForm'])->name('backpack.auth.login');
+
         // Facebook login
-        Route::get('/login/{provider}', [LoginController::class, 'redirectToProvider'])->name('login.provider')->where('provider', 'facebook|instagram|google|twitter');
-        Route::get('/login/{provider}/callback', [LoginController::class, 'handleProviderCallback'])->name('login.provider.callback')->where('provider', 'facebook|instagram|google|twitter');
+        Route::get('login/{provider}', [LoginController::class, 'redirectToProvider'])->name('login.provider')->where('provider', 'facebook|google');
+        Route::get('login/{provider}/callback', [LoginController::class, 'handleProviderCallback'])->name('login.provider.callback')->where('provider', 'facebook|google');
 
         Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('backpack.auth.register');
         Route::post('register', [RegisterController::class, 'register']);
         // Facebook register
-        Route::get('register/{provider}', [RegisterController::class, 'redirectToProvider'])->name('register.provider')->where('provider', 'facebook|instagram|google|twitter');
-        Route::get('register/{provider}/callback', [RegisterController::class, 'handleProviderCallback'])->name('register.provider.callback')->where('provider', 'facebook|instagram|google|twitter');
+        Route::get('register/{provider}', [RegisterController::class, 'redirectToProvider'])->name('register.provider')->where('provider', 'facebook|google');
+        Route::get('register/{provider}/callback', [RegisterController::class, 'handleProviderCallback'])->name('register.provider.callback')->where('provider', 'facebook|google');
     }
 );
 
@@ -43,9 +42,12 @@ Route::group(
         'prefix'     => config('backpack.base.route_prefix'),
     ],
     function () {
+        Route::post('login', 'Auth\LoginController@login');
         Route::get('logout', 'Auth\LoginController@logout')->name('backpack.auth.logout');
         Route::post('logout', 'Auth\LoginController@logout');
-        
+        Route::get('logout', 'Auth\LoginController@logout')->name('backpack.auth.logout');
+        Route::post('logout', 'Auth\LoginController@logout');
+
         // if not otherwise configured, setup the dashboard routes
         if (config('backpack.base.setup_dashboard_routes')) {
             Route::get('dashboard', 'AdminController@dashboard')->name('backpack.dashboard');

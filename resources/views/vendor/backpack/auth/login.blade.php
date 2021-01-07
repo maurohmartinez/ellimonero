@@ -9,7 +9,9 @@
     </div>
 </div>
 <div class="section">
-    <div class="col-12 col-lg-9 col-md-12 mx-auto text-center">@include('flash')</div>
+    <div class="container">
+        <div class="col-12 col-lg-10 col-md-12 mx-auto text-center">@include('flash')</div>
+    </div>
     <div class="container">
         <div class="col-lg-6 col-md-7 col-12 mb-5 offset-lg-1">
             <h2>¿Ya estás registrado?</h2>
@@ -24,7 +26,7 @@
                 <div>
                     <input type="text" class="form-input-text mb-2 w-input {{ $errors->has('email') ? 'border border-danger' : '' }}" name="email" value="{{ old('email') }}" id="email">
                     @if ($errors->has('email'))
-                    <span class="text-danger">
+                    <span class="text-danger error-field">
                         <strong>*{{ $errors->first('email') }}</strong>
                     </span>
                     @endif
@@ -35,7 +37,7 @@
                     <input type="password" class="form-input-text mb-2 w-input {{ $errors->has('password') ? 'border border-danger' : '' }}" name="password" id="password">
 
                     @if ($errors->has('password'))
-                    <span class="text-danger">
+                    <span class="text-danger error-field">
                         <strong>* {{ $errors->first('password') }}</strong>
                     </span>
                     @endif

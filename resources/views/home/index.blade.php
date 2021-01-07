@@ -11,17 +11,35 @@
 @include('home.inc.section_4')
 @include('home.inc.section_5')
 @include('home.inc.call_to_action_2')
-@include('home.inc.product_modal')
+@if(App\Models\Popup::activo()->exists())
+@include('home._popup')
+@endif
 @endsection
 
 @section('scripts')
+
 <script>
-    $(window).scroll(function() {
-        if ($(window).scrollTop() >= 300) {
-            $('#top-nav-bar').addClass('solid');
-        } else {
-            $('#top-nav-bar').removeClass('solid');
-        }
-    });
+    (function() {
+        // Update top nav color whe scroll
+        $(window).scroll(function() {
+            if ($(window).scrollTop() >= 300) {
+                $('#top-nav-bar').addClass('solid');
+            } else {
+                $('#top-nav-bar').removeClass('solid');
+            }
+        });
+    })();
 </script>
+
+@if(App\Models\Popup::activo()->exists())
+<script>
+    (function() {
+        // Popup
+        setTimeout(function() {
+            $('#popup').modal('show');
+        }, 2000);
+    })();
+</script>
+@endif
+
 @endsection

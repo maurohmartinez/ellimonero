@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class ProductRequest extends FormRequest
+class PopupRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,9 +26,9 @@ class ProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'              => 'required|max:50|min:3',
+            'name'              => 'required|max:40|min:3',
+            'subtitle'          => 'required|max:20|min:3',
             'description'       => 'sometimes|nullable|max:191',
-            'content'           => 'sometimes|nullable|max:3000',
             'type'              => 'required|in:regular,auction',
             'price'             => 'required|integer',
             'price_discount'    => 'sometimes|nullable|integer|lt:price',

@@ -39,6 +39,7 @@
 
 $color-versions: (
   'primary': $main-color,
+  'danger': $danger-color,
   'secondary': $secondary-color,
   'facebook': $facebook,
   'google': $google,
@@ -83,17 +84,17 @@ $color-versions: (
 }
 
 .btn-lg {
-    padding: 0 3rem;
+    padding: 0 2rem;
     font-size: 1.2rem;
     border-radius: 0;
-    height: calc(4.75rem + 2px);
+    height: calc(3.5rem + 2px);
 }
 
 .btn-sm {
-    padding: 0 1.2rem;
-    font-size: 0.9rem;
+    padding: 0 1rem;
+    font-size: 0.8rem;
     border-radius: 0;
-    height: calc(2.5rem + 2px);
+    height: calc(2.2rem + 2px);
 }
 
 /* btn-color */

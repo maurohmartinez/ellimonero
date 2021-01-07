@@ -1,3 +1,4 @@
 require('./bootstrap');
-window.$ = jQuery = require('./jquery-3.4.1.min');
+window.$ = jQuery = require('./jquery');
+require('./bootstrap4.min');
 require('./zuma');

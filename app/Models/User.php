@@ -45,4 +45,20 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'is_admin' => 'boolean',
     ];
+
+    /**
+     * Get first letters of name
+     * 
+     * @return string
+     */
+    public function getFirstLettersAttribute()
+    {
+        $result = '';
+        $str = $this->name;
+        $words = explode(' ', $str);
+        foreach($words as $name){
+            $result .= strtoupper(trim($name[0]));
+        }
+        return $this->attributes['first_letters'] = $result;
+    }
 }

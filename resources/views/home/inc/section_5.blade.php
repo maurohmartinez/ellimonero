@@ -22,11 +22,11 @@
                         <div class="c-product__price margin-right-small">$20</div>
                         <div class="c-product__price is-slashed">$45</div>
                     </div>
-                    <div class="c-product__quickview">
+                    <!-- <div class="c-product__quickview">
                         <a href="#" class="button-primary is-small w-inline-block">
                             <div class="button-primary-text"><span class="fa-regular is-16px"></span>  Vista rápida</div>
                         </a>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="c-product-thumb">
                     <div class="c-product-thumb__top"><a href="single-product.html" class="margin-bottom-small w-inline-block"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8ks8mMjs-e7fyKmz0W1Exa5_PaWuZXTv2kg&usqp=CAU" sizes="(max-width: 479px) 90vw, (max-width: 615px) 91vw, 560px" alt="">
@@ -43,11 +43,11 @@
                         <div class="c-product__price margin-right-small">$32</div>
                         <div class="c-product__price is-slashed">$42</div>
                     </div>
-                    <div class="c-product__quickview">
+                    <!-- <div class="c-product__quickview">
                         <a href="#" class="button-primary is-small w-inline-block">
                             <div class="button-primary-text"><span class="fa-regular is-16px"></span>  Vista rápida</div>
                         </a>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="c-product-thumb">
                     <div class="c-product-thumb__top"><a href="single-product.html" class="margin-bottom-small w-inline-block"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8ks8mMjs-e7fyKmz0W1Exa5_PaWuZXTv2kg&usqp=CAU" sizes="(max-width: 479px) 90vw, (max-width: 615px) 91vw, 560px" alt="">
@@ -63,11 +63,11 @@
                     <div class="c-product__price-wrapper">
                         <div class="c-product__price margin-right-small">$19</div>
                     </div>
-                    <div class="c-product__quickview">
+                    <!-- <div class="c-product__quickview">
                         <a href="#" class="button-primary is-small w-inline-block">
                             <div class="button-primary-text"><span class="fa-regular is-16px"></span>  Vista rápida</div>
                         </a>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="c-product-thumb">
                     <div class="c-product-thumb__top"><a href="single-product.html" class="margin-bottom-small w-inline-block"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8ks8mMjs-e7fyKmz0W1Exa5_PaWuZXTv2kg&usqp=CAU" sizes="(max-width: 479px) 90vw, (max-width: 615px) 91vw, 560px" alt="">
@@ -83,11 +83,11 @@
                     <div class="c-product__price-wrapper">
                         <div class="c-product__price margin-right-small">$22</div>
                     </div>
-                    <div class="c-product__quickview">
+                    <!-- <div class="c-product__quickview">
                         <a href="#" class="button-primary is-small w-inline-block">
                             <div class="button-primary-text"><span class="fa-regular is-16px"></span>  Vista rápida</div>
                         </a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

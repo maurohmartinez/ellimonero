@@ -65,6 +65,12 @@ return [
             'url' => env('APP_URL').'/',
             'visibility' => 'public',
         ],
+        'popups' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/popups'),
+            'url' => env('APP_URL').'/',
+            'visibility' => 'public',
+        ],
     ],
 
     /*

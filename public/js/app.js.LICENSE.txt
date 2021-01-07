@@ -1,33 +1,46 @@
 /*!
- * Timm
- *
- * Immutability helpers with fast reads and acceptable writes.
- *
- * @copyright Guillermo Grau Panea 2016
- * @license MIT
- */
+     * Timm
+     *
+     * Immutability helpers with fast reads and acceptable writes.
+     *
+     * @copyright Guillermo Grau Panea 2016
+     * @license MIT
+     */
 
 /*!
- * Webflow._ (aka) Underscore.js 1.6.0 (custom build)
- * _.each
- * _.map
- * _.find
- * _.filter
- * _.any
- * _.contains
- * _.delay
- * _.defer
- * _.throttle (webflow)
- * _.debounce
- * _.keys
- * _.has
- * _.now
- *
- * http://underscorejs.org
- * (c) 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
- * Underscore may be freely distributed under the MIT license.
- * @license MIT
- */
+     * Webflow._ (aka) Underscore.js 1.6.0 (custom build)
+     * _.each
+     * _.map
+     * _.find
+     * _.filter
+     * _.any
+     * _.contains
+     * _.delay
+     * _.defer
+     * _.throttle (webflow)
+     * _.debounce
+     * _.keys
+     * _.has
+     * _.now
+     *
+     * http://underscorejs.org
+     * (c) 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+     * Underscore may be freely distributed under the MIT license.
+     * @license MIT
+     */
+
+/*!
+     * tram.js v0.8.2-global
+     * Cross-browser CSS3 transitions in JavaScript
+     * https://github.com/bkwld/tram
+     * MIT License
+     */
+
+/*!
+  * Bootstrap v4.5.3 (https://getbootstrap.com/)
+  * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+  */
 
 /*!
  * Webflow: Front-end site library
@@ -35,13 +48,6 @@
  * Inline scripts may access the api using an async handler:
  *   var Webflow = Webflow || [];
  *   Webflow.push(readyFunction);
- */
-
-/*!
- * tram.js v0.8.2-global
- * Cross-browser CSS3 transitions in JavaScript
- * https://github.com/bkwld/tram
- * MIT License
  */
 
 /*! jQuery v3.4.1 | (c) JS Foundation and other contributors | jquery.org/license */

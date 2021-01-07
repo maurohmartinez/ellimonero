@@ -4733,7 +4733,7 @@ figcaption {
 }
 
 .c-gridgallery1__image.img3 {
-  background-image: url('https://lh3.googleusercontent.com/proxy/8t1vurZGLXb8uoLCxZ87dXhbj3ulhsX3kkX4WgRNmvjRlrgEqLPg2-Eyt9NF4wTBZqRhQE7gjTPjGdDWdPZvd5EkNIk8Hyxierh7oij-rbRU5DYfIkILx9ZlS7Z4V1yqxblAsKAX9g1qBqdyq7VHdB4tuk6G7rZx7kYVgQvkRy8TeTaJ6Yp2oDFh-g');
+  background-image: url('https://image.freepik.com/free-vector/rock-music-logo_23-2147889170.jpg');
   background-position: 50% 100%;
 }
 
@@ -5745,7 +5745,7 @@ figcaption {
   right: 0%;
   bottom: 0%;
   z-index: 9999;
-  display: none;
+  display: block;
   width: 100vw;
   height: 100vh;
   -webkit-box-pack: center;

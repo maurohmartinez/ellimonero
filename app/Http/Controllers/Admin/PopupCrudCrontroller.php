@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
-use App\Http\Requests\ProductRequest;
+use App\Http\Requests\PopupRequest;
 use Carbon\Carbon;
 
-class ProductsCrudCrontroller extends CrudController
+class PopupCrudCrontroller extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
@@ -16,9 +16,9 @@ class ProductsCrudCrontroller extends CrudController
 
     public function setup()
     {
-        CRUD::setModel("App\Models\Product");
-        CRUD::setRoute(config('backpack.base.route_prefix', 'admin') . '/products');
-        CRUD::setEntityNameStrings('producto', 'productos');
+        CRUD::setModel("App\Models\Popup");
+        CRUD::setRoute(config('backpack.base.route_prefix', 'admin') . '/popup');
+        CRUD::setEntityNameStrings('popup', 'popups');
 
         CRUD::operation(['list', 'show'], function () {
 
@@ -36,40 +36,12 @@ class ProductsCrudCrontroller extends CrudController
                     return '';
                 }
             ]);
-            // CRUD::column('user_id')->label('Usuario')->type('select')->entity('user')->attribute('name')->wrapper([
-            //     'href' => function ($crud, $column, $entry, $related_key) {
-            //         return backpack_url('user/' . $related_key . '/edit');
-            //     },
-            //     'class' => function ($crud, $column, $entry, $related_key) {
-            //         if ($entry['seen'] == false) {
-            //             return 'text-success';
-            //         }
-            //         return '';
-            //     }
-            // ]);
-            // CRUD::column('comments')->label('Comentario')
-            //     ->visibleInModal(true)
-            //     ->wrapper([
-            //         'class' => function ($crud, $column, $entry, $related_key) {
-            //             if ($entry['seen'] == false) {
-            //                 return 'text-success';
-            //             }
-            //             return '';
-            //         }
-            //     ]);
-            // CRUD::column('updated_at')->label('Recibido')->type('date')->wrapper([
-            //     'class' => function ($crud, $column, $entry, $related_key) {
-            //         if ($entry['seen'] == false) {
-            //             return 'text-success';
-            //         }
-            //         return '';
-            //     }
-            // ]);
         });
 
         CRUD::operation(['create', 'update'], function () {
-            CRUD::setValidation(ProductRequest::class);
-            CRUD::field('name')->label('Nombre de producto');
+            CRUD::setValidation(PopupRequest::class);
+            CRUD::field('title')->label('Título');
+            CRUD::field('subtitle')->label('Subtítulo');
             CRUD::field('images')->label('Imágenes')->type('repeatable')->fields([[
                 'type' => 'image',
                 'name' => 'image_url',
@@ -80,7 +52,6 @@ class ProductsCrudCrontroller extends CrudController
                 // 'disk' => 'products'
             ]])->hint('Agregue todas las imágenes del producto.');
             CRUD::field('description')->type('textarea')->label('Descripción corta');
-            CRUD::field('content')->label('Descripción larga')->type('ckeditor');
             CRUD::field('type')->label('Tipo de venta')->type('select2_from_array')->options([
                 'regular' => 'Venta inmediata',
                 'auction' => 'Subasta'
@@ -89,11 +60,6 @@ class ProductsCrudCrontroller extends CrudController
             CRUD::field('price')->label('Precio')->type('number')->prefix('$')->size(6);
             CRUD::field('price_discount')->label('Precio descuento')->type('number')->prefix('$')->size(6);
             CRUD::field('price_min')->label('Venta mínima')->type('number')->prefix('$')->hint('* Aplica siempre y cuando el tipo de venta sea Subasta.');
-            CRUD::field('timeframe')->label('Duración de venta')->type('select2_from_array')->options([
-                'always' => 'Permanente',
-                'stock' => 'Hasta que termine stock',
-                'date' => 'Diración específica',
-            ])->size(5);
             CRUD::field(['starts', 'ends'])->label('Duración')->type('date_range')->hint('* Aplica siempre y cuando el tipo de venta sea Subasta.')->default([Carbon::today(), Carbon::today()->addWeek()])->date_range_options([
                 'timePicker' => true,
                 'locale' => ['format' => 'DD/MM/YYYY HH:mm']
@@ -101,11 +67,7 @@ class ProductsCrudCrontroller extends CrudController
             CRUD::field('active')->label('Activo')->type('select2_from_array')->options([
                 1 => 'Si',
                 0 => 'No'
-            ])->size(6);
-            CRUD::field('new')->label('Destacar como nuevo')->type('select2_from_array')->options([
-                1 => 'Si',
-                0 => 'No'
-            ])->size(6);
+            ]);
         });
     }
 }

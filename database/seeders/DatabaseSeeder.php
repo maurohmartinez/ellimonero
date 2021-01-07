@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'name' => 'Administrador',
+            'name' => 'Administrador Tester',
             'email' => 'test@test.com',
             'is_admin' => true,
             'password' => '$2y$10$xVaTRwYeYkHYaEkivqpANO/rSifPX8p9.4MyE5qDcdi6aZX4fnp2K', // test
@@ -109,14 +109,29 @@ class DatabaseSeeder extends Seeder
                 'type' => $i <= 5 ? 'regular' : 'auction',
                 'price' => rand(100, 900),
                 'price_min' => $i <= 5 ? null : 300,
-                // 'auction_starts' => '',
-                // 'auction_ends' => '',
-                'images' => '[{"image_url":""}]',
+                'images' => '[{"image_url":"/storage/popups/c66b7ceb5eb53d491c70448b1d1cb809.jpg"}]',
+                'timeframe' => 'always',
                 'active' => 1,
                 'new' => 0,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ]);
         }
+
+        DB::table('popups')->insert([
+            'title' => 'Entrada gratis',
+            'subtitle' => 'Obtené tu regalo',
+            'slug' => 'obtene-tu-entrada-gratis',
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
+            'type' => $i <= 5 ? 'regular' : 'auction',
+            'price' => 0,
+            'price_min' => null,
+            'images' => '[{"image_url":"/storage/popups/c66b7ceb5eb53d491c70448b1d1cb809.jpg"},{"image_url":"/storage/popups/c66b7ceb5eb53d491c70448b1d1cb809.jpg"}]',
+            'active' => 1,
+            'starts' => '2021-01-01 00:00:00',
+            'ends' => '2021-05-01 00:00:00',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
     }
 }

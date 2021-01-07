@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [PageController::class, 'home'])->name('home');
+
+/*
+|--------------------------------------------------------------------------
+| Logged Web Routes
+|--------------------------------------------------------------------------
+|
+*/
+
+Route::group([
+    'middleware' => 'auth',
+    'prefix'     => 'profile',
+], function () {
+    // Profile
+    Route::get('/', [ProfileController::class, 'index'])->name('profile');
+    Route::post('/', [ProfileController::class, 'updateInfo'])->name('profile.update');
+    Route::post('/password', [ProfileController::class, 'updatePassword'])->name('profile.password.update');
+});
 
 
 /** CATCH-ALL ROUTE for Backpack/PageManager - needs to be at the end of your routes.php file  **/
