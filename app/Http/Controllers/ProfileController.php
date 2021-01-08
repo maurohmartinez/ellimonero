@@ -21,6 +21,15 @@ class ProfileController extends Controller
     }
 
     /**
+     * Show profile orders
+     */
+    public function orders()
+    {
+        $this->data['title'] = 'Compras';
+        return view('profile.index', $this->data);
+    }
+
+    /**
      * Process profile updated
      */
     public function updateInfo(Request $request)

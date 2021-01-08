@@ -30,6 +30,7 @@ Route::group([
 ], function () {
     // Profile
     Route::get('/', [ProfileController::class, 'index'])->name('profile');
+    Route::get('/orders', [ProfileController::class, 'orders'])->name('profile.orders');
     Route::post('/', [ProfileController::class, 'updateInfo'])->name('profile.update');
     Route::post('/password', [ProfileController::class, 'updatePassword'])->name('profile.password.update');
 });
