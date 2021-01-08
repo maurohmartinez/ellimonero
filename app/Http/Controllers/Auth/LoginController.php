@@ -7,7 +7,9 @@ use Backpack\CRUD\app\Library\Auth\AuthenticatesUsers;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
+use App\Traits\HandleQrResponse;
 
 class LoginController extends Controller
 {
@@ -23,10 +25,13 @@ class LoginController extends Controller
     | to conveniently provide its functionality to your applications.
     |
     */
+    
     use AuthenticatesUsers {
         login as defaultLogin;
         logout as defaultLogout;
     }
+
+    use HandleQrResponse;
 
     /**
      * Create a new controller instance.
@@ -35,6 +40,11 @@ class LoginController extends Controller
      */
     public function __construct()
     {
+        // Redirect if logged
+        if(Auth::check()){
+            return redirect(route('home'));
+        }
+
         $guard = backpack_guard_name();
 
         $this->middleware("guest:$guard", ['except' => 'logout']);
@@ -54,6 +64,18 @@ class LoginController extends Controller
         // Redirect here after logout.
         $this->redirectAfterLogout = property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout
             : backpack_url();
+    }
+
+    /**
+     * Custom login to check first QR
+     */
+    public function login(){
+        
+        // Login
+        $this->defaultLogin();
+        
+        // Handle QR
+        return $this->handleQrSession();
     }
 
     /**
@@ -129,8 +151,11 @@ class LoginController extends Controller
         if (null !== $provider_user->getEmail()) {
             $user = User::whereEmail($provider_user->getEmail())->first();
             if ($user !== null) {
+                
                 $this->guard()->login($user, true);
-                return redirect(route('home') . '/#');
+
+                // Handle QR
+                return $this->handleQrSession('/#');
             }
         }
 

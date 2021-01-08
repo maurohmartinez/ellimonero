@@ -71,6 +71,12 @@ return [
             'url' => env('APP_URL').'/',
             'visibility' => 'public',
         ],
+        'qr' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/qr'),
+            'url' => env('APP_URL').'/',
+            'visibility' => 'public',
+        ],
     ],
 
     /*

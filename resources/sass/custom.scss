@@ -52,6 +52,8 @@ input {
     color: #fff;
     font-size: 14px;
     font-weight: 300;
+    bordeR: none;
+    border-radius: 0px;
 }
 
 .alert-danger {
@@ -60,4 +62,8 @@ input {
 
 .alert-success {
     background-color: mix($success, #000, 50%);
+}
+
+.related-post-card-content {
+    margin-top: -10px;
 }

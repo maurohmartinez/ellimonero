@@ -133,5 +133,21 @@ class DatabaseSeeder extends Seeder
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
+        
+        DB::table('qrs')->insert([
+            'token' => 'si3u1',
+            'welcome_message' => '<p>¡Estás a un paso de adquirir una de las <u>100 entradas</u> que ofrecemos!</p>',
+            'success_message' => '<p></p>',
+            'error_message' => '<p>¡Listo! Revisá tu email y en unos minutos te llegarán tus entradas.</p>',
+            'email_message' => '<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi dignissimos alias animi quam, tenetur, impedit dolores, obcaecati maiores tempora ad laboriosam ea officia et. Alias dicta tenetur repellat libero totam!</p>',
+            'image' => '/storage/qr/test.jpg',
+            'stock' => 100,
+            'always_visible' => 1,
+            'active' => 1,
+            'starts' => '2021-01-01 00:00:00',
+            'ends' => '2021-05-01 00:00:00',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
     }
 }

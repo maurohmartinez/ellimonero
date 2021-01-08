@@ -16,6 +16,9 @@ use App\Http\Controllers\ProfileController;
 */
 
 Route::get('/', [PageController::class, 'home'])->name('home');
+Route::get('/qr/{token}', [PageController::class, 'qr'])->name('qr'); // si3u1
+Route::get('/qr-error/{error}', [PageController::class, 'qrError'])->name('qr.error')->where('error', 'doesnt_exist|already_used|failed');
+Route::get('/qr-success/{token}', [PageController::class, 'qrSuccess'])->name('qr.success');
 
 /*
 |--------------------------------------------------------------------------

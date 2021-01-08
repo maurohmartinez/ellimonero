@@ -61,4 +61,13 @@ class User extends Authenticatable
         }
         return $this->attributes['first_letters'] = $result;
     }
+
+    /**
+     * QR relationship
+     * 
+     */
+    public function Qr()
+    {
+        return $this->belongsToMany('App\Models\Qr');
+    }
 }

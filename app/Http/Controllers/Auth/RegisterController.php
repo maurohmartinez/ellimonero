@@ -8,10 +8,11 @@ use Exception;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Str;
+use App\Traits\HandleQrResponse;
 
 class RegisterController extends Controller
 {
@@ -27,7 +28,7 @@ class RegisterController extends Controller
     | provide this functionality without requiring any additional code.
     |
     */
-    use RegistersUsers;
+    use RegistersUsers, HandleQrResponse;
 
     /**
      * Create a new controller instance.
@@ -36,6 +37,11 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
+        // Redirect if logged
+        if(Auth::check()){
+            return redirect(route('home'));
+        }
+
         $guard = backpack_guard_name();
 
         $this->middleware("guest:$guard");
@@ -126,12 +132,9 @@ class RegisterController extends Controller
 
         // Login
         $this->guard()->login($user);
-
-        // Welcome notification
-        $this->sendWelcomeNotification($user);
-
-        // Redirect
-        return redirect(route('home'));
+        
+        // Handle QR
+        return $this->handleQrSession();
     }
 
     /**
@@ -171,7 +174,7 @@ class RegisterController extends Controller
     public function handleProviderCallback($provider)
     {
         config(['services.' . $provider . '.redirect' => route('register.provider.callback', ['provider' => $provider])]);
-        
+
         try {
             $provider_user = Socialite::driver($provider)->user();
         } catch (Exception $e) {
@@ -207,35 +210,8 @@ class RegisterController extends Controller
 
         // Login
         $this->guard()->login($user);
-
-        // Welcome notification
-        $this->sendWelcomeNotification();
-
-        // Redirect
-        return redirect(route('home') . '/#');
-    }
-
-    /**
-     * Send welcome notification to new user
-     *
-     * @return boolean
-     */
-    private function sendWelcomeNotification()
-    {
-        try {
-            backpack_user()->notifications()->create([
-                'title' => '¡Bienvenido!',
-                'body' => 'Para poder hacer pedidos tenés que completar tu perfil. Hacé click acá para comenzar.',
-                'data_web' => [
-                    'close' => true,
-                    'duration' => -1,
-                    'newWindow' => false,
-                    'url' => route('profile')
-                ],
-            ]);
-        } catch (Exception $e) {
-            Log::alert('RegisterController@sendWelcomeNotification ' . $e->getMessage());
-            return null;
-        }
+        
+        // Handle QR
+        return $this->handleQrSession('/#');
     }
 }
