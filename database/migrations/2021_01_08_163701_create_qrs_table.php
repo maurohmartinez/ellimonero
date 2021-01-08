@@ -21,8 +21,8 @@ class CreateQrsTable extends Migration
             $table->longText('email_message');
             $table->string('token');
             $table->text('image');
-            $table->timestamp('starts');
-            $table->timestamp('ends');
+            $table->timestamp('starts')->nullable();
+            $table->timestamp('ends')->nullable();
             $table->boolean('always_visible');
             $table->boolean('active');
             $table->integer('stock')->nullable();
