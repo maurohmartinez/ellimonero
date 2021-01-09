@@ -25,7 +25,6 @@ class Qr extends Model
     protected $fillable = [
         'welcome_message',
         'success_message',
-        'error_message',
         'email_message',
         'token',
         'starts',

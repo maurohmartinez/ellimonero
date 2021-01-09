@@ -44,7 +44,6 @@ class QrCrudCrontroller extends CrudController
 
             CRUD::field('welcome_message')->label('Mensaje inicial')->type('ckeditor')->hint('Ej: ¡Estás a punto de adquirir una de las 100 entradas que regalamos!');
             CRUD::field('success_message')->label('Mensaje de confirmación')->type('ckeditor')->hint('Ej: ¡Listo! Revisá tu email y pronto recibirás tu regalo.');
-            CRUD::field('error_message')->label('Mensaje de rechazo')->type('ckeditor')->hint('Ej: Lo sentimos, pero se nos ha terminado el stock.');
             CRUD::field('email_message')->label('Mensaje en email')->type('ckeditor')->hint('Ej: Te enviamos el regalo que prometido.');
 
             CRUD::field('stock')->label('Stock')->type('number')->default(1)->hint('Dejar vacío si no aplica.')->size(4);
