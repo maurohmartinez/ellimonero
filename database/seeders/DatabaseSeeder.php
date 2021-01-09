@@ -137,8 +137,7 @@ class DatabaseSeeder extends Seeder
         DB::table('qrs')->insert([
             'token' => 'si3u1',
             'welcome_message' => '<p>¡Estás a un paso de adquirir una de las <u>100 entradas</u> que ofrecemos!</p>',
-            'success_message' => '<p></p>',
-            'error_message' => '<p>¡Listo! Revisá tu email y en unos minutos te llegarán tus entradas.</p>',
+            'success_message' => '<p>¡Listo! En breve recibirás un correo electrónico con tu regalo.</p>',
             'email_message' => '<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi dignissimos alias animi quam, tenetur, impedit dolores, obcaecati maiores tempora ad laboriosam ea officia et. Alias dicta tenetur repellat libero totam!</p>',
             'image' => '/storage/qr/test.jpg',
             'stock' => 100,

@@ -49,24 +49,44 @@ class Qr extends Model
     ];
 
     /**
+     * Users relationship
+     *
+     * @return object
+     */
+    public function users()
+    {
+        return $this->belongsToMany('App\Models\User');
+    }
+
+    /**
      * Scope activo
+     *
+     * @return object
+     */
+    public function scopeOnTime($query)
+    {
+        $now = Carbon::now(new DateTimeZone('America/Argentina/Buenos_Aires'));
+        return $query->where('starts', '<', $now)->where('ends', '>', $now);
+    }
+
+    /**
+     * Scope sotck
+     *
+     * @return object
+     */
+    public function scopeHasStock($query)
+    {
+        return $query->where('stock', '<', 0);
+    }
+
+    /**
+     * Scope activo and visible
      *
      * @return object
      */
     public function scopeActivo($query)
     {
-        return $query
-            ->where(function ($q) {
-                $q
-                    ->where('starts', '<', Carbon::now(new DateTimeZone('America/Argentina/Buenos_Aires'))->format('Y-m-d H:i:s'))
-                    ->where('ends', '>', Carbon::now(new DateTimeZone('America/Argentina/Buenos_Aires'))->format('Y-m-d H:i:s'))
-                    ->where('stock', '>', 0);
-            })
-            ->orWhere(function ($q) {
-                $q
-                    ->where('always_visible', 1)
-                    ->where('stock', '>', 0);
-            });
+        return $query->where('always_visible', 1)->where('stock', '>', 0);
     }
 
     /**

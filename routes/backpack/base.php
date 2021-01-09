@@ -22,6 +22,7 @@ Route::group(
     function () {
 
         Route::get('login', [LoginController::class, 'showLoginForm'])->name('backpack.auth.login');
+        Route::post('login', [LoginController::class, 'customLogin']);
 
         // Facebook login
         Route::get('login/{provider}', [LoginController::class, 'redirectToProvider'])->name('login.provider')->where('provider', 'facebook|google');
@@ -42,9 +43,6 @@ Route::group(
         'prefix'     => config('backpack.base.route_prefix'),
     ],
     function () {
-        Route::post('login', 'Auth\LoginController@login');
-        Route::get('logout', 'Auth\LoginController@logout')->name('backpack.auth.logout');
-        Route::post('logout', 'Auth\LoginController@logout');
         Route::get('logout', 'Auth\LoginController@logout')->name('backpack.auth.logout');
         Route::post('logout', 'Auth\LoginController@logout');
 

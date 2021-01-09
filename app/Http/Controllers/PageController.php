@@ -29,21 +29,22 @@ class PageController extends Controller
     public function qr($token)
     {
         $this->data['title'] = 'QR';
-        
+
         // Validate
-        if(!Qr::where('token', $token)->exists()){
+        if (!Qr::where('token', $token)->exists()) {
             return redirect(route('qr.error', ['error' => 'doesnt_exist']));
         }
 
         $qr = Qr::where('token', $token)->first();
 
         // Is logged
-        if(backpack_auth()->check()){
+        if (backpack_auth()->check()) {
             return $this->addQrToUser($qr);
         }
 
         // Save session with QR
         Session::put('qr', $token);
+        $this->data['qr'] = $qr;
 
         return view('qr.index', $this->data);
     }
@@ -55,10 +56,11 @@ class PageController extends Controller
      */
     public function qrSuccess($token)
     {
-        $this->data['title'] = '¡QR listo!';
-        if(backpack_user()->qr()->where('token', $token)->doesntExist()){
+        if (backpack_user()->qr()->where('token', $token)->doesntExist()) {
             abort(404);
         }
+        $this->data['feedback'] = Qr::where('token', $token)->firstOrFail()->success_message;
+        $this->data['title'] = '¡QR escaneado!';
         return view('qr.success', $this->data);
     }
 
@@ -67,10 +69,30 @@ class PageController extends Controller
      * 
      * @param string $error
      */
-    public function qrError()
+    public function qrError($error)
     {
-        $this->data['title'] = 'QR ya utilizado';        
-        return view('qr.error');
+        $this->data['feedback'] = 'El código QR escaneado es inválido.';
+
+        switch ($error) {
+            case 'already_used':
+                $this->data['feedback'] = 'Ya has utilizado este código QR.';
+                break;
+            case 'expired':
+                $this->data['feedback'] = 'El código QR escaneado no existe o ya venció.';
+                break;
+            case 'failed':
+                $this->data['feedback'] = 'Ocurrió un error y no pudimos completar la operación para el código QR escaneado. Por favor, intentá nuevamente o contactate con nosotros si el error persiste.';
+                break;
+            case 'deactivated':
+                $this->data['feedback'] = 'El código QR escaneado está desactivado.';
+                break;
+            case 'out_of_stock':
+                $this->data['feedback'] = 'Lo sentimos, pero se ha terminado el stock para el código QR escaneado.';
+                break;
+        }
+
+        $this->data['title'] = 'QR inválido';
+        return view('qr.error', $this->data);
     }
 
     /**

@@ -69,10 +69,10 @@ class LoginController extends Controller
     /**
      * Custom login to check first QR
      */
-    public function login(){
+    public function customLogin(Request $request){
         
         // Login
-        $this->defaultLogin();
+        $this->defaultLogin($request);
         
         // Handle QR
         return $this->handleQrSession();
@@ -95,7 +95,7 @@ class LoginController extends Controller
      *
      * @return mixed
      */
-    protected function loggedOut(Request $request)
+    protected function loggedOut()
     {
         return redirect(route('home'));
     }
