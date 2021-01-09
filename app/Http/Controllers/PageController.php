@@ -7,7 +7,7 @@ use Backpack\PageManager\app\Models\Page;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Session;
 use App\Traits\HandleQrResponse;
-use App;
+use App\Models\Product;
 
 class PageController extends Controller
 {
@@ -18,7 +18,8 @@ class PageController extends Controller
      */
     public function home()
     {
-        return view('home.index');
+        $products = Product::activo()->onTime()->hasStock()->get();
+        return view('home.index', ['products' => $products]);
     }
 
     /**

@@ -44,7 +44,7 @@ class QrCrudCrontroller extends CrudController
 
             CRUD::field('welcome_message')->label('Mensaje inicial')->type('ckeditor')->hint('Ej: ¡Estás a punto de adquirir una de las 100 entradas que regalamos!');
             CRUD::field('success_message')->label('Mensaje de confirmación')->type('ckeditor')->hint('Ej: ¡Listo! Revisá tu email y pronto recibirás tu regalo.');
-            CRUD::field('email_message')->label('Mensaje en email')->type('ckeditor')->hint('Ej: Te enviamos el regalo que prometido.');
+            CRUD::field('description')->label('Descripción del regalo')->type('textarea')->hint('Ej: Vale x2 entradas para ver a Maxi el día xx-xx en xxx. Para ingresar entrá por puerta xx y mostrá este mensaje.');
 
             CRUD::field('stock')->label('Stock')->type('number')->default(1)->hint('Dejar vacío si no aplica.')->size(4);
             CRUD::field(['starts', 'ends'])->label('Duración')->type('date_range')->hint('* Aplica siempre y cuando el tipo de venta sea Subasta.')->default([Carbon::today(), Carbon::today()->addWeek()])->date_range_options([

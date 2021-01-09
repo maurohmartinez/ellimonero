@@ -30,7 +30,7 @@ class QrRequest extends FormRequest
             'success_message'   => 'required|max:100|min:10',
             'error_message'     => 'required|max:100|min:10',
             'email_message'     => 'required',
-            'token'             => 'required|max:10|min:5',
+            'token'             => 'required|max:10|min:5|unique:qrs',
             'price_discount'    => 'sometimes|nullable|integer|lt:price',
             'price_min'         => 'sometimes|nullable|integer',
             'starts'            => 'sometimes|nullable|date',

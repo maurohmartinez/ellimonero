@@ -37,7 +37,7 @@ class ProductRequest extends FormRequest
             'ends'              => [Rule::requiredIf($this->type == 'auction'), 'sometimes', 'nullable', 'date', 'after:starts'],
             'images'            => 'required',
             'active'            => 'boolean',
-            'stock'             => 'integer',
+            'stock'             => 'integer|sometimes|nullable',
             'new'               => 'boolean'
         ];
     }

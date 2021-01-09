@@ -85,7 +85,7 @@ class ProductsCrudCrontroller extends CrudController
                 'regular' => 'Venta inmediata',
                 'auction' => 'Subasta'
             ])->size(5);
-            CRUD::field('stock')->label('Stock')->type('number')->default(1)->suffix('x disponibles')->size(7);
+            CRUD::field('stock')->label('Stock')->type('number')->suffix('x disponibles')->size(7)->hint('Dejar vacío si no aplica.');
             CRUD::field('price')->label('Precio')->type('number')->prefix('$')->size(6);
             CRUD::field('price_discount')->label('Precio descuento')->type('number')->prefix('$')->size(6);
             CRUD::field('price_min')->label('Venta mínima')->type('number')->prefix('$')->hint('* Aplica siempre y cuando el tipo de venta sea Subasta.');

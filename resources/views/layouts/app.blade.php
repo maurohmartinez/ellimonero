@@ -38,7 +38,9 @@
     <!--nice-select js here-->
     <script src="/js/template/plugin/nice-select/jquery.nice-select.min.js"></script>
     <script src="/js/template/scripts.js"></script>
+    @livewireScripts
     <script src="{{ url('/').mix('/js/app.js') }}"></script>
+    @stack('scripts')
     @yield('scripts')
 </body>
 

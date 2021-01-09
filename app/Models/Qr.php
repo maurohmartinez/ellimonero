@@ -25,7 +25,7 @@ class Qr extends Model
     protected $fillable = [
         'welcome_message',
         'success_message',
-        'email_message',
+        'description',
         'token',
         'starts',
         'ends',
@@ -55,27 +55,6 @@ class Qr extends Model
     public function users()
     {
         return $this->belongsToMany('App\Models\User');
-    }
-
-    /**
-     * Scope activo
-     *
-     * @return object
-     */
-    public function scopeOnTime($query)
-    {
-        $now = Carbon::now(new DateTimeZone('America/Argentina/Buenos_Aires'));
-        return $query->where('starts', '<', $now)->where('ends', '>', $now);
-    }
-
-    /**
-     * Scope sotck
-     *
-     * @return object
-     */
-    public function scopeHasStock($query)
-    {
-        return $query->where('stock', '<', 0);
     }
 
     /**

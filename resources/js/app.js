@@ -1,4 +1,6 @@
 require('./bootstrap');
+window.Swal = require('sweetalert2/dist/sweetalert2');
+require('./swal');
 
 // window.$ = window.jQuery = require('jquery');
 // require('./template/default-js/jquery-migrate-1.4.1.min');

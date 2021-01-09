@@ -20,13 +20,19 @@
                     <!-- <li class="dark-light"><img src="{{ asset('/images/svg/dark-light.svg') }}" alt=""></li> -->
                     @if(backpack_auth()->check())
                     <li class="sign-click relative" style="text-decoration: none;">
-                        <a href="{{ route('profile') }}">{{ backpack_user()->first_letters }}</a>
+                        <a href="{{ route('profile') }}" class="d-flex align-items-center">{{ backpack_user()->first_letters }}
+                            &nbsp;<i class="la la-user-circle" style="font-size: 25px;"></i></a>
                     </li>
-                    <li class="" style="text-decoration: none;">
-                        <a href="#"><i class="las la-shopping-cart" style="font-size: 25px;"></i></a>
+                    @if(backpack_user()->is_admin)
+                    <li class="sign-click relative" style="text-decoration: none;">
+                        <a href="{{ route('backpack.dashboard') }}" class="d-flex align-items-center"><i class="las la-tachometer-alt" style="font-size: 25px;"></i></a>
                     </li>
+                    @endif
                     <li style="text-decoration: none;">
-                        <a class="text-light" href="{{ route('backpack.auth.logout') }}">Salir</a>
+                        <livewire:cart />
+                    </li>
+                    <li style="text-decoration: none;" class="d-none d-md-block">
+                        <a class="text-light" href="{{ route('backpack.auth.logout') }}" class="d-flex align-items-center">Salir</a>
                     </li>
                     @else
                     <li class="sign-click relative" style="text-decoration: none;">

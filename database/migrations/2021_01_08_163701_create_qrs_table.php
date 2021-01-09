@@ -17,8 +17,8 @@ class CreateQrsTable extends Migration
             $table->id();
             $table->string('welcome_message');
             $table->string('success_message');
-            $table->longText('email_message');
-            $table->string('token');
+            $table->string('token')->unique();
+            $table->text('description');
             $table->text('image');
             $table->timestamp('starts')->nullable();
             $table->timestamp('ends')->nullable();

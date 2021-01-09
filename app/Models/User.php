@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -69,5 +68,32 @@ class User extends Authenticatable
     public function Qr()
     {
         return $this->belongsToMany('App\Models\Qr');
+    }
+    
+    /**
+     * Cart relationship
+     * 
+     */
+    public function cart()
+    {
+        return $this->hasMany('App\Models\Cart', 'user_id', 'id');
+    }
+    
+    /**
+     * Payments relationship
+     * 
+     */
+    public function payments()
+    {
+        return $this->hasMany('App\Models\Payments', 'id', 'user_id');
+    }
+    
+    /**
+     * Orders relationship
+     * 
+     */
+    public function orders()
+    {
+        return $this->hasMany('App\Models\Order', 'id', 'user_id');
     }
 }

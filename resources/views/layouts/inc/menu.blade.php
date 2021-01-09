@@ -8,6 +8,7 @@
     </ul>
 </li>
 @else
-<li><a href="home-sidebar-minimal.html">{{ $item->name }}</a></li>
+<li><a href="{{ $item->url() }}">{{ $item->name }}</a></li>
 @endif
 @endforeach
+<li><a class="text-primary d-block d-md-none" href="{{ route('backpack.auth.logout') }}">Salir</a></li>
