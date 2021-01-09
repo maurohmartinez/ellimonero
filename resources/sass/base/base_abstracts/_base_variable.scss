@@ -1,6 +1,6 @@
 //font weight
     :root {
-    --title-font: 'Mulish', sans-serif;
+    --title-font: 'Anglecia';
     --text-bold: bold;
     --text-semibold: 600;
     --text-medium: 500;
@@ -11,14 +11,14 @@
 // Color
     :root {
     --input-white: #ffffff;
-    --menu-color: #070615;
-    --color-Sub-heading: #FFAF29;
-    --color-lignt-Sub-heading: darken(#FFAF29, 10%);
+    --menu-color: #151106;
+    --color-Sub-heading: #ffb800;
+    --color-lignt-Sub-heading: darken(#ffb800, 10%);
     --color-heading: #1A2030;
     --color-heading2: #1A2030;
     --color-text: #666666;
     --color-text2: #666666;
-    --color-yellow-deep: #faa10c;
+    --color-yellow-deep: #ffb800;
     --color-input: #FFF;
     --body-bg-color: #fff;
     --color-secondary: #FAFAFA;
@@ -77,20 +77,20 @@
 
 // data-theme colors
 [data-theme='dark'] {
-    --body-bg-color: #070615;
+    --body-bg-color: #0f0d06;
     --color-text: #ffffff;
     --color-text2: #DDDEDE;
-    --color-secondary: #161B2A;
+    --color-secondary: #1f1f1f;
     --menu-color: #ffffff;
     --color-light-dark: #efefef;
     --color-heading: #ffffff;
-    --color-input: #161B2A;
-    --color-account-border: #070615;
-    --input-white: #161B2A;
+    --color-input: #1f1f1f;
+    --color-account-border: #1f1f1f;
+    --input-white: #1f1f1f;
     --footer-overlay: rgba(0, 0, 0, 0.8);
-    --color-bg-three: #8e8e8e;
-    --color-text2: #8e8e8e;
-    --border-color: #5a5a5a;
+    --color-bg-three: #ead8c0;
+    --color-text2: #ead8c0;
+    --border-color: #ead8c0;
     --light-black: rgba(177, 177, 177, 0.2);
     --table-border: rgba(255, 255, 255, 0.2);
     --table-border2: rgba(255, 255, 255, 0.1);

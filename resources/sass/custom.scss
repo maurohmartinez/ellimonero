@@ -67,3 +67,23 @@ input {
 .related-post-card-content {
     margin-top: -10px;
 }
+
+.btn {
+    font-size: 14px !important;
+}
+
+.btn-outline-secondary {
+    border: 1px solid $secondary;
+}
+
+.btn-outline-primary {
+    border: 1px solid $primary;
+}
+
+.main-link-card {
+    transition: transform .2s; /* Animation */
+}
+
+.main-link-card:hover {
+    transform: scale(1.05) !important;
+}

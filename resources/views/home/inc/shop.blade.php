@@ -29,13 +29,13 @@
                     <a href="#" class="single-shop-card-img">
                         <img src="{{ asset('images/shop/shop-img1.jpg') }}" alt="">
                     </a>
-                    <div class="single-shop-card-content">
-                        <div class="card-title">
-                            <h3><a href="product-details.html">Producto 1</a></h3>
-                        </div>
+                    <div class="single-shop-card-content section-bg">
+                        <!-- <div class="card-title"> -->
+                            <h5><a href="#">Producto 1</a></h5>
+                        <!-- </div> -->
                         <div class="card-content-wrap">
                             <h4><span>$17.00</span> $9.05</h4>
-                            <button class="btn btn-white btn-sm btn-radious-6 border-gray-btn">Agregar</button>
+                            <button class="btn btn-dark">Agregar</button>
                         </div>
                     </div>
                 </div>
@@ -45,13 +45,13 @@
                     <a href="#" class="single-shop-card-img">
                         <img src="{{ asset('images/shop/shop-img1.jpg') }}" alt="">
                     </a>
-                    <div class="single-shop-card-content">
+                    <div class="single-shop-card-content section-bg">
                         <div class="card-title">
                             <h3><a href="product-details.html">Producto 2</a></h3>
                         </div>
                         <div class="card-content-wrap">
                             <h4><span>$17.00</span> $9.05</h4>
-                            <button class="btn btn-white btn-sm btn-radious-6 border-gray-btn">Agregar</button>
+                            <button class="btn btn-dark">Agregar</button>
                         </div>
                     </div>
                 </div>
@@ -61,13 +61,13 @@
                     <a href="#" class="single-shop-card-img">
                         <img src="{{ asset('images/shop/shop-img1.jpg') }}" alt="">
                     </a>
-                    <div class="single-shop-card-content">
+                    <div class="single-shop-card-content section-bg">
                         <div class="card-title">
                             <h3><a href="product-details.html">Producto 3</a></h3>
                         </div>
                         <div class="card-content-wrap">
                             <h4><span>$17.00</span> $9.05</h4>
-                            <button class="btn btn-white btn-sm btn-radious-6 border-gray-btn">Agregar</button>
+                            <button class="btn btn-dark">Agregar</button>
                         </div>
                     </div>
                 </div>
@@ -77,13 +77,13 @@
                     <a href="#" class="single-shop-card-img">
                         <img src="{{ asset('images/shop/shop-img1.jpg') }}" alt="">
                     </a>
-                    <div class="single-shop-card-content">
+                    <div class="single-shop-card-content section-bg">
                         <div class="card-title">
                             <h3><a href="product-details.html">Producto 4</a></h3>
                         </div>
                         <div class="card-content-wrap">
                             <h4><span>$17.00</span> $9.05</h4>
-                            <button class="btn btn-white btn-sm btn-radious-6 border-gray-btn">Agregar</button>
+                            <button class="btn btn-dark">Agregar</button>
                         </div>
                     </div>
                 </div>
@@ -93,13 +93,13 @@
                     <a href="#" class="single-shop-card-img">
                         <img src="{{ asset('images/shop/shop-img1.jpg') }}" alt="">
                     </a>
-                    <div class="single-shop-card-content">
+                    <div class="single-shop-card-content section-bg">
                         <div class="card-title">
                             <h3><a href="product-details.html">Producto 5</a></h3>
                         </div>
                         <div class="card-content-wrap">
                             <h4><span>$17.00</span> $9.05</h4>
-                            <button class="btn btn-white btn-sm btn-radious-6 border-gray-btn">Agregar</button>
+                            <button class="btn btn-dark">Agregar</button>
                         </div>
                     </div>
                 </div>
@@ -109,13 +109,13 @@
                     <a href="#" class="single-shop-card-img">
                         <img src="{{ asset('images/shop/shop-img1.jpg') }}" alt="">
                     </a>
-                    <div class="single-shop-card-content">
+                    <div class="single-shop-card-content section-bg">
                         <div class="card-title">
                             <h3><a href="product-details.html">Producto 6</a></h3>
                         </div>
                         <div class="card-content-wrap">
                             <h4><span>$17.00</span> $9.05</h4>
-                            <button class="btn btn-white btn-sm btn-radious-6 border-gray-btn">Agregar</button>
+                            <button class="btn btn-dark">Agregar</button>
                         </div>
                     </div>
                 </div>
