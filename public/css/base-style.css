@@ -22912,10 +22912,10 @@ input[data-color="black"] {
   .badge-danger:hover {
     background-color: #f01c1c; }
 
-.badge-sucess {
+.badge-success {
   background-color: var(--paste2);
   transition: .5s ease; }
-  .badge-sucess:hover {
+  .badge-success:hover {
     background-color: #2a9a74; }
 
 .d-block {

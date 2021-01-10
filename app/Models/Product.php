@@ -42,7 +42,7 @@ class Product extends Model
         'stock',
         'new'
     ];
-    
+
     /**
      * Casts attributes.
      *
@@ -53,6 +53,13 @@ class Product extends Model
         'starts' => 'datetime',
         'ends' => 'datetime'
     ];
+
+    /**
+     * Append attribute.
+     *
+     * @var array
+     */
+    protected $append = ['final_price'];
 
     /**
      * Image mutator
@@ -168,5 +175,15 @@ class Product extends Model
     public function scopeHasStock($query)
     {
         return $query->where('stock', '>', 0)->orWhere('stock', null);
+    }
+
+    /**
+     * Append final price
+     *
+     * @return object
+     */
+    public function getFinalPriceAttribute()
+    {
+        return $this->attributes['final_price'] = $this->price_discount ?? $this->price;
     }
 }

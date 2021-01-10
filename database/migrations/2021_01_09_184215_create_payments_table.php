@@ -17,8 +17,9 @@ class CreatePaymentsTable extends Migration
             $table->id();
             $table->integer('user_id')->constrained()->onDelete('cascade');
             $table->integer('order_id')->constrained();
-            $table->string('mp_id');
+            $table->longText('mp');
             $table->string('status');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

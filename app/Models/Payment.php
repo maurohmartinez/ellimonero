@@ -17,9 +17,9 @@ class Payment extends Model
      */
     protected $fillable = [
         'user_id',
-        'orders_id',
-        'mp_id',
-        'status',
+        'order_id',
+        'mp',
+        'status'
     ];
 
     /**
@@ -27,7 +27,7 @@ class Payment extends Model
      *
      * @var array
      */
-    protected $casts = [];
+    protected $casts = ['mp' => 'array'];
 
     /**
      * User relationship

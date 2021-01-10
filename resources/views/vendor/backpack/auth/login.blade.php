@@ -41,7 +41,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group mb-2">
                             <div>
                                 <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" id="password" placeholder="Contraseña">
 
@@ -53,17 +53,15 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <div>
-                                <div class="checkbox">
-                                    <label class="remember-me">
-                                        <input type="checkbox" name="remember"> {{ trans('backpack::base.remember_me') }}
-                                    </label>
-                                </div>
-                            </div>
+                        <div class="review-checkbox">
+                            <label class="label-check check_out">
+                                <input type="checkbox" name="remember" class="check-input">
+                                <span class="checked"></span>
+                                <span class="checked-content">Recordarme</span>
+                            </label>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group mt-4">
                             <div>
                                 <button type="submit" class="btn btn-block btn-primary">
                                     {{ trans('backpack::base.login') }}

@@ -26,7 +26,19 @@ class ProfileController extends Controller
     public function orders()
     {
         $this->data['title'] = 'Compras';
+        $this->data['orders'] = backpack_user()->orders()->latest()->get();
         return view('profile.index', $this->data);
+    }
+    
+    /**
+     * Show order
+     */
+    public function order($order_number)
+    {
+        $this->data['title'] = 'Compra';
+        $this->data['order'] = backpack_user()->orders()->where('number', $order_number)->firstOrFail();
+        dd($this->data['order']);
+        // return view('profile.index', $this->data);
     }
 
     /**
@@ -92,5 +104,21 @@ class ProfileController extends Controller
             'text' => 'La contraseña fue actualizada.',
             'type' => 'success'
         ]);
+    }
+
+    /**
+     * Checkout page
+     * 
+     */
+    public function checkout()
+    {
+        $this->data['title'] = 'Checkout';
+        $this->data['items'] = backpack_user()->cart()->whereHas('product', function ($query) {
+            $query
+                ->activo()
+                ->onTime()
+                ->hasStock();
+        })->get();
+        return view('checkout.index', $this->data);
     }
 }

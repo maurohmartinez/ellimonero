@@ -85,7 +85,7 @@ class User extends Authenticatable
      */
     public function payments()
     {
-        return $this->hasMany('App\Models\Payments', 'id', 'user_id');
+        return $this->hasMany('App\Models\Payment', 'user_id', 'id');
     }
     
     /**
@@ -94,6 +94,6 @@ class User extends Authenticatable
      */
     public function orders()
     {
-        return $this->hasMany('App\Models\Order', 'id', 'user_id');
+        return $this->hasMany('App\Models\Order', 'user_id', 'id');
     }
 }

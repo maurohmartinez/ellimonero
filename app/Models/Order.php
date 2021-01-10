@@ -20,6 +20,7 @@ class Order extends Model
         'number',
         'total',
         'products',
+        'status',
         'observations'
     ];
 
@@ -28,7 +29,7 @@ class Order extends Model
      *
      * @var array
      */
-    protected $casts = [];
+    protected $casts = ['products' => 'array'];
 
     /**
      * User relationship
@@ -45,8 +46,23 @@ class Order extends Model
      *
      * @return object
      */
-    public function payments()
+    public function payment()
     {
-        return $this->hasMany('App\Models\Payments', 'id', 'order_id');
+        return $this->hasOne('App\Models\Payment', 'order_id', 'id');
+    }
+    
+    /**
+     * Make list of products
+     *
+     * @return object
+     */
+    public function getProductsListAttribute()
+    {
+        $text = '';
+
+        foreach($this->products as $key => $product){
+            $text .= ($key > 0 ? ' ' : '') . $product['name'] . ' (' . $product['quantity'] . 'x $' . $product['price'] . ')';
+        }
+        return $this->attributes['products_list'] = $text;
     }
 }

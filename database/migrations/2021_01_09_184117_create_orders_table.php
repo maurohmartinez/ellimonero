@@ -19,7 +19,9 @@ class CreateOrdersTable extends Migration
             $table->string('number')->unique();
             $table->integer('total');
             $table->longText('products');
-            $table->string('observations');
+            $table->string('observations')->nullable();
+            $table->enum('status', ['pending', 'paid'])->default('pending');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

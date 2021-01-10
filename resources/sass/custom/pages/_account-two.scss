@@ -85,9 +85,9 @@
                     min-width: 100px;
                     white-space: nowrap;
                     color: var(--color-heading);
-                    &:last-child {
-                        padding-right: 0px;
-                    }
+                    // &:last-child {
+                    //     padding-right: 0px;
+                    // }
                 }
             }
         }
@@ -101,15 +101,15 @@
                     color: var(--color-text2);
                     font-weight: var(--text-regular);
                     min-width: 130px;
-                    &:last-child {
-                        border-top: none;
-                    }
+                    // &:last-child {
+                    //     border-top: none;
+                    // }
                     &[data-title="Total"] {
                         padding-right: 0px;
                     }
-                    &:last-child {
-                        padding-left: 50px;
-                    }
+                    // &:last-child {
+                    //     padding-left: 50px;
+                    // }
                 }
             }
         }

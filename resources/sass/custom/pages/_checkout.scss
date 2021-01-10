@@ -49,12 +49,12 @@
         }
         
         .review-checkbox {
-            margin-top: 15px;
-            margin-left: 35px;
+            flex-direction: row;
+            align-items: center;
             .checked-content {
-                padding-left: 40px;
+                padding-left: 30px;
                 display: inline-block;
-                font-size: 15px;
+                font-size: 14px;
             }
             .check_out {
                 &.label-check {
@@ -63,7 +63,7 @@
                         transform: translateY(0%);
                         height: 20px;
                         width: 20px;
-                        top: 5px !important;
+                        top: 4px !important;
                         &:before {
                             border-radius: 3px;
                         }
@@ -156,13 +156,22 @@
                 }
             }
         }
+
+        .product-table-row {
+            border-bottom: solid 1px var(--table-border2);
+        }
+        
+        .product-table {
+            border: solid 1px var(--table-border2);
+        }
         
         .product-info-area {
             .product-table {
+                display: table;
                 margin-bottom: 0px;
-                thead {
-                    tr {
-                        th {
+                .thead {
+                    .tr {
+                        .th {
                             font-size: 20px;
                             padding-top: 25px;
                             color: var(--color-heading);

@@ -11,4 +11,6 @@
 <li><a href="{{ $item->url() }}">{{ $item->name }}</a></li>
 @endif
 @endforeach
+@if(backpack_auth()->check())
 <li><a class="text-primary d-block d-md-none" href="{{ route('backpack.auth.logout') }}">Salir</a></li>
+@endif

@@ -46,7 +46,7 @@ class ProductAdd extends Component
                 ]);
             }
             $this->quantity = 1;
-            $this->emit('feedback-success', ['title' => 'Producto agregado.']);
+            $this->emit('feedback-success', ['title' => '¡El producto fue agregado!']);
             $this->emitTo('cart', 'countProducts');
         } catch (Exception $e) {
             dd($e->getMessage());

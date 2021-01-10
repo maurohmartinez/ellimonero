@@ -18,9 +18,9 @@
             @foreach($products as $product)
             <div class="col-xl-4 col-md-6 mb-50">
                 <div class="single-shop-card">
-                    <a href="#" class="single-shop-card-img">
+                    <div class="single-shop-card-img">
                         <img src="{{ asset($product->images[0]['image_url']) }}" alt="">
-                    </a>
+                    </div>
                     <div class="single-shop-card-content section-bg">
                         <div class="d-flex justify-content-between">
                             <h5 class="mb-0"><a href="#">{{ $product->name }}</a></h5>

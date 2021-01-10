@@ -10,7 +10,7 @@ class Cart extends Component
     public $count;
 
     protected $listeners = ['countProducts'];
-    
+
     /**
      * Render component
      * 
@@ -28,13 +28,18 @@ class Cart extends Component
     {
         $this->countProducts();
     }
-    
+
     /**
      * Count products
      * 
      */
     public function countProducts()
     {
-        $this->count = backpack_user()->cart()->count();
+        $this->count = backpack_user()->cart()->whereHas('product', function ($query) {
+            $query
+                ->activo()
+                ->onTime()
+                ->hasStock();
+        })->count();
     }
 }

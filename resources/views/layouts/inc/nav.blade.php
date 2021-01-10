@@ -15,31 +15,28 @@
             </div>
             <!-- sign-in area -->
             <div class="sign-in-area">
-                <ul class="d-flex align-items-center justify-content-between">
-                    <!-- <li class="popup"><img src="{{ asset('/images/svg/search.svg') }}" alt=""></li> -->
-                    <!-- <li class="dark-light"><img src="{{ asset('/images/svg/dark-light.svg') }}" alt=""></li> -->
+                <ul class="d-flex">
                     @if(backpack_auth()->check())
-                    <li class="sign-click relative" style="text-decoration: none;">
+                    <li class="sign-click relative px-2" style="text-decoration: none;">
                         <a href="{{ route('profile') }}" class="d-flex align-items-center">{{ backpack_user()->first_letters }}
                             &nbsp;<i class="la la-user-circle" style="font-size: 25px;"></i></a>
                     </li>
+                    <li style="text-decoration: none;" class="px-2">
+                        <livewire:cart />
+                    </li>
                     @if(backpack_user()->is_admin)
-                    <li class="sign-click relative" style="text-decoration: none;">
+                    <li style="text-decoration: none;" class="px-2">
                         <a href="{{ route('backpack.dashboard') }}" class="d-flex align-items-center"><i class="las la-tachometer-alt" style="font-size: 25px;"></i></a>
                     </li>
                     @endif
-                    <li style="text-decoration: none;">
-                        <livewire:cart />
-                    </li>
-                    <li style="text-decoration: none;" class="d-none d-md-block">
+                    <li style="text-decoration: none;" class="d-none d-md-block px-2">
                         <a class="text-light" href="{{ route('backpack.auth.logout') }}" class="d-flex align-items-center">Salir</a>
                     </li>
                     @else
-                    <li class="sign-click relative" style="text-decoration: none;">
+                    <li class="sign-click relative px-2" style="text-decoration: none;">
                         <a href="{{ route('backpack.auth.login') }}">Ingresar</a>
                     </li>
-                    <span>|</span>
-                    <li style="text-decoration: none;">
+                    <li style="text-decoration: none;" class="px-2">
                         <a class="text-light" href="{{ route('backpack.auth.register') }}">Registrarme</a>
                     </li>
                     @endif

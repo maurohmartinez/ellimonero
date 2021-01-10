@@ -22,7 +22,7 @@ return [
     'delete'                         => 'Excluir',
     'delete_confirm'                 => 'Tem certeza que deseja excluir este backup?',
     'delete_confirmation_title'      => 'Pronto',
-    'delete_confirmation_message'    => 'Backup excluído com sucesso.',
+    'delete_confirmation_message'    => 'Backup excluído com successo.',
     'delete_error_title'             => 'Erro',
     'delete_error_message'           => 'Não foi possível excluir o backup.',
     'delete_cancel_title'            => 'Sem problema',
