@@ -19,4 +19,5 @@ Route::group([
     Route::crud('products', 'ProductsCrudCrontroller');
     Route::crud('popup', 'PopupCrudCrontroller');
     Route::crud('qr', 'QrCrudCrontroller');
+    Route::crud('orders', 'OrdersCrudCrontroller');
 }); // this should be the absolute last line of this file

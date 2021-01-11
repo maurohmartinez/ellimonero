@@ -38,4 +38,14 @@ class Payment extends Model
     {
         return $this->belongsTo('App\Models\User');
     }
+    
+    /**
+     * Payment id attribute
+     *
+     * @return string
+     */
+    public function getPaymentIdAttribute()
+    {
+        return $this->attributes['payment_id'] = $this->mp['payment_id'];
+    }
 }

@@ -21,6 +21,28 @@
         <div class="row">
             <div class="col-lg-8 m-auto">
                 @include('flash')
+                <div class="account-table-wrapper bg-custom-table">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Producto</th>
+                                <th scope="col">Precio/u</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($order->products as $item)
+                            <tr>
+                                <td data-title="Producto">{{ $item['name'] }}</th>
+                                <td data-title="Precio/u">${{ $item['price'] }}</th>
+                                <td data-title="Cantidad">{{ $item['quantity'] }}</th>
+                                <td data-title="Subtotal">${{ $item['price'] * $item['quantity'] }}</th>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
                 <div class="product-table">
                     <div class="px-4 py-2 checkout-dtls mb-0 border-0 d-none d-md-block">
                         <div class="row">
@@ -38,24 +60,6 @@
                             </div>
                         </div>
                     </div>
-                    @foreach($order->products as $item)
-                    <div class="px-4 py-2 mb-0 product-table-row">
-                        <div class="row">
-                            <div class="col-5">
-                                <p class="text-light font-weight-bold">{{ $item['name'] }}</p>
-                            </div>
-                            <div class="col-2">
-                                <p class="text-light">${{ $item['price'] }}/u</p>
-                            </div>
-                            <div class="col-3">
-                                <p class="text-light">x{{ $item['quantity'] }}</p>
-                            </div>
-                            <div class="col-2">
-                                <p class="text-secondary">${{ $item['price'] * $item['quantity'] }}</p>
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
                     <div class="checkout-dtls mb-0 p-2 flex-column">
                         <div class="d-flex justify-content-between align-items-center pt-3">
                             <div class="checkout-total-cost checkout-comon-width text-right d-flex align-items-center pl-3">

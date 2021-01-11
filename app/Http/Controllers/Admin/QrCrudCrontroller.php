@@ -23,6 +23,7 @@ class QrCrudCrontroller extends CrudController
         CRUD::operation(['list', 'show'], function () {
             CRUD::column('token')->label('Token');
             CRUD::column('stock')->label('Stock')->type('number');
+            CRUD::column('available_stock')->label('Stock disponible')->type('number');
             CRUD::column('active')->label('Activo')->type('boolean')->wrapper([
                 'class' => function ($crud, $column, $entry, $related_key) {
                     if ($entry['seen'] == false) {

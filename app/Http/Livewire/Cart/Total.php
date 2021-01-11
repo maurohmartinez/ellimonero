@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Cart;
 
 use Livewire\Component;
 
-class CartTotal extends Component
+class Total extends Component
 {
     public $total;
 
@@ -16,7 +16,7 @@ class CartTotal extends Component
      */
     public function render()
     {
-        return view('livewire.cart-total');
+        return view('livewire.cart.total');
     }
 
     /**

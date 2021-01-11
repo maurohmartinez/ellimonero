@@ -107,16 +107,16 @@ class MercadoPago
     {
         // Crea un objeto de preferencia
         $preference = new Preference();
+        $preference->auto_return = "approved";
+        $preference->binary_mode = true;
+        $preference->external_reference = $order->id;
+        $preference->statement_descriptor = 'ELLIMONERODIGITAL';
 
         // URL back
         $preference->back_urls = array(
             "success" => route('chechout.payment.response', ['type' => 'success', 'order_number' => $order->number]),
             "failure" => route('chechout.payment.response', ['type' => 'failure', 'order_number' => $order->number]),
         );
-
-        // Auto return
-        $preference->auto_return = "approved";
-        $preference->binary_mode = true;
 
         // Methods
         $preference->payment_methods = [
@@ -125,7 +125,6 @@ class MercadoPago
                 ['id' => 'atm'],
                 ['id' => 'ticket']
             ],
-            'statement_descriptor' => 'ELLIMONERODIGITAL'
         ];
 
         $products = $order->products;
@@ -140,8 +139,6 @@ class MercadoPago
             $item->description = $cartItem['description'];
             $items[] = $item;
         }
-
-        $preference->external_reference = 'user-' . backpack_user()->id . '_order-' . $order->id;
         $preference->items = $items;
         $preference->save();
 

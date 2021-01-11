@@ -18,7 +18,9 @@
 </div>
 @if(Route::current()->getName() == 'profile')
 @include('profile.inc.edit')
-@else
+@elseif(Route::current()->getName() == 'profile.orders')
 @include('profile.inc.orders')
+@elseif(Route::current()->getName() == 'profile.order')
+@include('profile.inc.order', ['order' => $order])
 @endif
 @endsection

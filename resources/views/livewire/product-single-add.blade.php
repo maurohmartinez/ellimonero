@@ -1,5 +1,5 @@
 <div>
-    <div class="d-flex align-items-center justify-content-between">
+    <div class="d-flex align-items-center justify-content-start">
         <div style="background-color: #161616;">
             <button wire:click="minus" class="btn btn-dark mt-0 px-0" style="display: inline; width: 50px;" key="button-minus">
                 <i wire:loading.remove wire:target="minus" class="la la-minus"></i>
@@ -11,12 +11,10 @@
                 <div wire:loading wire:target="plus" class="spinner-border text-primary" style="zoom: .5;" role="status"></div>
             </button>
         </div>
-        <div class="d-flex justify-content-end">
-            <span class="ml-3"></span>
-            <div wire:click="addProduct" class="cursor-pointer">
-                <span wire:loading wire:target="addProduct" class="spinner-border text-primary mr-1" style="zoom: .7;" role="status"></span>
-                <span wire:loading.remove wire:target="addProduct"><i class="la la-cart-plus" style="font-size: 30px;"></i></span>
-            </div>
-        </div>
+        <button type="button" wire:click="addProduct" class="btn btn-md btn-primary d-flex align-items-center ml-3" style="padding-top: 6px; padding-bottom: 6px;">
+            <div wire:loading wire:target="addProduct" class="spinner-border text-dark" style="zoom: .8;" role="status"></div>
+            <i wire:loading.remove wire:target="addProduct" class="la la-cart-plus" style="font-size: 25px;"></i>
+            <span class="ml-2">AGREGAR</span>
+        </button>
     </div>
 </div>

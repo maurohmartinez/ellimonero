@@ -19,7 +19,7 @@
 | Estado            | {{ $order->payment->status }} |
 | Fecha             | {{ $order->payment->mp['date_approved'] }} |
 | Descripción       | {{ $order->payment->mp['description'] }} |
-| Método            | {{ ucfirst($order->payment->mp['payment_method_id']) }} |
+| Tarjeta           | {{ ucfirst($order->payment->mp['payment_method_id']) }} |
 | Tipo              | {{ ucfirst($order->payment->mp['payment_type_id']) }} |
 | Total abonado     | <strong><span style="color: green;">${{ $order->payment->mp['transaction_amount'] }}</span></strong> |
 @endcomponent

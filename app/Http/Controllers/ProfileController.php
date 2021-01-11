@@ -37,8 +37,7 @@ class ProfileController extends Controller
     {
         $this->data['title'] = 'Compra';
         $this->data['order'] = backpack_user()->orders()->where('number', $order_number)->firstOrFail();
-        dd($this->data['order']);
-        // return view('profile.index', $this->data);
+        return view('profile.index', $this->data);
     }
 
     /**

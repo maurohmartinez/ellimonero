@@ -16,7 +16,7 @@ class Ordertems extends Component
      */
     public function render()
     {
-        return view('livewire.cart-items');
+        return view('livewire.cart.items');
     }
 
     /**

@@ -2,7 +2,8 @@
     background-color: rgba(255, 255, 255, .1);
 }
 
-input, .custom-input {
+input,
+.custom-input {
     border: none !important;
     font-size: 14px !important;
     background-color: rgba(0, 0, 0, .5) !important;
@@ -122,4 +123,16 @@ input, .custom-input {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: var(--light-black);
+}
+
+.cursor-pointer:hover {
+    cursor: pointer;
+    transition: color .5s;
+    color: $primary;
+}
+
+.content-product {
+    p {
+        color: #fff !important;
+    }
 }

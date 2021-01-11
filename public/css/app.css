@@ -42939,6 +42939,11 @@ Author:     Electronthemes
   font-weight: var(--text-medium);
 }
 
+@media screen and (max-width: 767px) {
+  .btn-cart-remove {
+    width: 100%;
+  }
+}
 .product-table-row {
   border-bottom: solid 1px var(--table-border2);
 }
@@ -43806,6 +43811,12 @@ a.single-shop-card-img {
   padding: 15px 0px;
 }
 
+@media screen and (min-width: 767px) {
+  .bg-custom-table {
+    background-color: var(--color-account-border);
+    border-radius: 5px;
+  }
+}
 .account-table-wrapper {
   padding: 0px 15px;
   overflow-x: auto;
@@ -43826,6 +43837,10 @@ a.single-shop-card-img {
   color: var(--color-text2);
   font-weight: var(--text-regular);
   min-width: 130px;
+}
+.account-table-wrapper .table tbody tr td .table-order,
+.account-table-wrapper .table tbody tr th .table-order {
+  border-top: none;
 }
 .account-table-wrapper .table tbody tr td[data-title=Total],
 .account-table-wrapper .table tbody tr th[data-title=Total] {
@@ -43896,8 +43911,8 @@ a.single-shop-card-img {
     padding-left: 15px;
     border-top: 2px solid var(--table-border2);
   }
-  .account-table-wrapper .table tbody tr th:last-child:after,
-.account-table-wrapper .table tbody tr td:last-child:after {
+  .account-table-wrapper .table tbody tr th:last-child.last-child:after,
+.account-table-wrapper .table tbody tr td:last-child.last-child:after {
     display: none;
   }
 }
@@ -45179,17 +45194,20 @@ a.single-shop-card-img {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-input, .custom-input {
+input,
+.custom-input {
   border: none !important;
   font-size: 14px !important;
   background-color: rgba(0, 0, 0, 0.5) !important;
   color: #fff !important;
   border-radius: 0px !important;
 }
-input.is-invalid, .custom-input.is-invalid {
+input.is-invalid,
+.custom-input.is-invalid {
   border: solid 1px #dc3545 !important;
 }
-input:focus, .custom-input:focus {
+input:focus,
+.custom-input:focus {
   background-color: rgba(0, 0, 0, 0.8) !important;
 }
 
@@ -45293,4 +45311,14 @@ input:focus, .custom-input:focus {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: var(--light-black);
+}
+
+.cursor-pointer:hover {
+  cursor: pointer;
+  transition: color 0.5s;
+  color: #F7BE00;
+}
+
+.content-product p {
+  color: #fff !important;
 }

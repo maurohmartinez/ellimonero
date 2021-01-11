@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\OrderPaid;
 use App\MercadoPago;
+use App\Models\Product;
 use Exception;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
@@ -35,6 +36,15 @@ class CheckoutController extends Controller
      */
     public function initPayment(Request $request)
     {
+        if (backpack_user()->cart()->whereHas('product', function ($query) {
+            $query
+                ->activo()
+                ->onTime()
+                ->hasStock();
+        })->doesntExist()) {
+            abort(404);
+        }
+
         DB::beginTransaction();
         try {
             // Create order
@@ -47,6 +57,11 @@ class CheckoutController extends Controller
 
             // Clear cart
             backpack_user()->cart()->delete();
+
+            // Decrement stock for products
+            foreach ($order->products as $product) {
+                Product::find($product['id'])->decrement('stock', $product['quantity']);
+            }
 
             DB::commit();
         } catch (Exception $e) {
@@ -70,6 +85,17 @@ class CheckoutController extends Controller
     public function payment($order_number)
     {
         $order = backpack_user()->orders()->where('status', 'pending')->where('number', $order_number)->firstOrFail();
+
+        // No products?
+        if (count($order->products) == 0) {
+            $order->delete();
+            return redirect(route('profile.orders'))->with('flash', [
+                'text' => 'La orden que estás buscando no existe.',
+                'icon' => 'la-exclamation',
+                'type' => 'danger'
+            ]);
+        }
+
         $mercadopago = new MercadoPago();
 
         $this->data['preference'] = $mercadopago->preference($order);
@@ -108,9 +134,6 @@ class CheckoutController extends Controller
                     'status' => $preference->status,
                 ]);
 
-                // Clear cart
-                backpack_user()->cart()->delete();
-
                 DB::commit();
             } catch (Exception $e) {
                 DB::rollBack();
@@ -129,8 +152,8 @@ class CheckoutController extends Controller
                 // Send email
                 Mail::to(backpack_user()->email)->send(new OrderPaid($order_number));
                 // Redirect
-                return redirect(route('profile.orders'))->with('flash', [
-                    'text' => '¡Gracias por tu compra! Pronto recibirás un email con más detalles.',
+                return redirect(route('profile.order', ['order_number' => $order_number]))->with('flash', [
+                    'text' => '¡Gracias por tu compra! Pronto recibirás un email con la confirmación.',
                     'type' => 'success'
                 ]);
             }

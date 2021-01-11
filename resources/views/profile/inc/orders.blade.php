@@ -39,7 +39,7 @@
                 </div>
             </div>
             <div class="col-xl-9">
-                <div class="account-table-wrapper">
+                <div class="account-table-wrapper bg-custom-table">
                     @if(count($orders) > 0)
                     <table class="table">
                         <thead>

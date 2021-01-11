@@ -93,6 +93,16 @@ class Qr extends Model
     }
 
     /**
+     * Get available stock
+     *
+     * @return string
+     */
+    public function getAvailableStockAttribute()
+    {
+        return $this->attributes['available_stock'] = $this->stock - $this->users()->count();
+    }
+
+    /**
      * Get date in local time
      *
      * @return string

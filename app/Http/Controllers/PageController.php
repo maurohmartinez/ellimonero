@@ -21,6 +21,15 @@ class PageController extends Controller
         $products = Product::activo()->onTime()->hasStock()->get();
         return view('home.index', ['products' => $products]);
     }
+    
+    /**
+     * Show product
+     */
+    public function product($slug)
+    {
+        $product = Product::activo()->onTime()->hasStock()->where('slug', $slug)->firstOrFail();
+        return view('home.product', ['product' => $product]);
+    }
 
     /**
      * Handle QR

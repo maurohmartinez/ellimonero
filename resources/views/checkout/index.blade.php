@@ -22,27 +22,11 @@
             <div class="col-lg-8 mx-auto">
                 @include('flash')
                 @if($has_items)
-                <div class="product-table">
-                    <div class="px-4 py-2 checkout-dtls mb-0 border-0 d-none d-md-block">
-                        <div class="row">
-                            <div class="col-5">
-                                <h6 class="text-light font-weight-bold">Producto</h6>
-                            </div>
-                            <div class="col-2">
-                                <h6 class="text-light">Precio/u</h6>
-                            </div>
-                            <div class="col-3">
-                                <h6 class="text-light">Cantidad</h6>
-                            </div>
-                            <div class="col-2">
-                                <h6 class="text-secondary">Subtotal</h6>
-                            </div>
-                        </div>
+                <div>
+                    <div class="account-table-wrapper bg-custom-table">
+                        <livewire:cart.items />
                     </div>
-                    <div>
-                        <livewire:cart-items />
-                    </div>
-                    <div class="checkout-dtls mb-0 p-3">
+                    <div class="checkout-dtls mb-0 p-3 mx-sm-4 mx-md-0">
                         <div class="checkout-shipping checkout-comon-width">
                             <h5>Entrega</h5>
                             <p class="text-secondary">* Retiro personalmente</p>
@@ -50,13 +34,13 @@
                         <div class="checkout-amount checkout-comon-width">
                             <h5>Subtotal</h5>
                             <h5>
-                                <livewire:cart-total />
+                                <livewire:cart.total />
                             </h5>
                         </div>
                         <div class="checkout-comon-width text-right">
                             <h5>Total</h5>
                             <h3 class="text-primary">
-                                <livewire:cart-total />
+                                <livewire:cart.total />
                             </h3>
                         </div>
                     </div>
