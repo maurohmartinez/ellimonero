@@ -44,7 +44,9 @@
                     <p>{{ $product->description }}</p>
                     <div class="product-option-wrapper">
                     </div>
+                    @if(backpack_auth()->check())
                     @livewire('product-single-add', ['product_id' => $product->id], key('product-single-' . $product->id))
+                    @endif
                 </div>
             </div>
         </div>
