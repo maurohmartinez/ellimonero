@@ -40,6 +40,10 @@ class Product extends Model
         'timeframe',
         'active',
         'stock',
+        'parent_id',
+        'lft',
+        'rgt',
+        'depth',
         'new'
     ];
 

@@ -30,6 +30,10 @@ class CreateProductsTable extends Migration
             $table->boolean('active');
             $table->boolean('new');
             $table->integer('stock')->nullable();
+            $table->integer('parent_id')->unsigned()->nullable();
+            $table->integer('lft')->unsigned()->nullable();
+            $table->integer('rgt')->unsigned()->nullable();
+            $table->integer('depth')->unsigned()->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

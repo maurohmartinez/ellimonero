@@ -13,6 +13,8 @@ class ProductsCrudCrontroller extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\ReorderOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\CloneOperation;
 
     public function setup()
     {
@@ -107,5 +109,11 @@ class ProductsCrudCrontroller extends CrudController
                 0 => 'No'
             ])->size(6);
         });
+    }
+
+    protected function setupReorderOperation()
+    {
+        CRUD::set('reorder.label', 'name');
+        CRUD::set('reorder.max_level', 1);
     }
 }

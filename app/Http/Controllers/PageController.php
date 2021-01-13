@@ -18,7 +18,7 @@ class PageController extends Controller
      */
     public function home()
     {
-        $products = Product::activo()->onTime()->get();
+        $products = Product::activo()->orderBy('lft', 'ASC')->onTime()->get();
         return view('home.index', ['products' => $products]);
     }
     
