@@ -18,7 +18,7 @@ class PageController extends Controller
      */
     public function home()
     {
-        $products = Product::activo()->onTime()->hasStock()->get();
+        $products = Product::activo()->onTime()->get();
         return view('home.index', ['products' => $products]);
     }
     
@@ -27,7 +27,7 @@ class PageController extends Controller
      */
     public function product($slug)
     {
-        $product = Product::activo()->onTime()->hasStock()->where('slug', $slug)->firstOrFail();
+        $product = Product::activo()->onTime()->where('slug', $slug)->firstOrFail();
         return view('home.product', ['product' => $product]);
     }
 

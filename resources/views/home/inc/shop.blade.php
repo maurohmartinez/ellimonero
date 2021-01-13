@@ -19,6 +19,9 @@
             <div class="col-xl-4 col-md-6 mb-50">
                 <div class="single-shop-card">
                     <a href="{{ route('product', ['slug' => $product->slug]) }}" class="single-shop-card-img">
+                        @if($product->stock == 0)
+                        <img style="position: absolute; width: 200px;" src="{{ asset('images/sold-out-banner.png') }}" alt="Sold Out">
+                        @endif
                         <img src="{{ asset($product->images[0]['image_url']) }}" alt="">
                     </a>
                     <div class="single-shop-card-content section-bg">
