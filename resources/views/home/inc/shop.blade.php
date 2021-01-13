@@ -27,6 +27,7 @@
                     <div class="single-shop-card-content section-bg">
                         <div class="d-flex justify-content-between">
                             <h5 class="mb-0"><a href="#">{{ $product->name }}</a></h5>
+                            @if($product->stock > 0)
                             <h4 class="mb-0">
                                 @if($product->price_discount)
                                 <span>${{ $product->price }}</span> ${{ $product->price_discount }}
@@ -34,15 +35,18 @@
                                 ${{ $product->price }}
                                 @endif
                             </h4>
+                            @endif
                         </div>
                         <div class="mt-2">
                             {{ Str::words($product->description, 50) }}
                         </div>
+                        @if($product->stock > 0)
                         <div class="mt-4">
                             @if(backpack_auth()->check())
                             @livewire('product-add', ['product_id' => $product->id], key('product-' . $product->id))
                             @endif
                         </div>
+                        @endif
                     </div>
                 </div>
             </div>
