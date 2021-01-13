@@ -6,6 +6,9 @@
         <div class="row align-items-center">
             <div class="col-lg-5">
                 <div class="product-information-img">
+                    @if($product->stock == 0)
+                    <img style="position: absolute; width: 200px;" src="{{ asset('images/sold-out-banner.png') }}" alt="Sold Out">
+                    @endif
                     @if(count($product->images) > 1)
                     <div class="owl-carousel">
                         @foreach($product->images as $image)
@@ -34,18 +37,21 @@
                             <label>★</label>
                         </div>
                     </div>
-
+                    
+                    @if($product->stock > 0)
                     @if($product->price_discount)
                     <h4><s>${{ $product->price }}</s> {{ $product->price_discount }}</h4>
                     @else
                     <h4>${{ $product->price }}</h4>
                     @endif
+                    @endif
 
                     <p>{{ $product->description }}</p>
-                    <div class="product-option-wrapper">
-                    </div>
+
+                    @if($product->stock > 0)
                     @if(backpack_auth()->check())
                     @livewire('product-single-add', ['product_id' => $product->id], key('product-single-' . $product->id))
+                    @endif
                     @endif
                 </div>
             </div>
