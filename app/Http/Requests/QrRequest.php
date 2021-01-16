@@ -25,8 +25,8 @@ class QrRequest extends FormRequest
     public function rules()
     {
         return [
-            'welcome'           => 'sometimes|nullable|max:100|min:10',
-            'success'           => 'sometimes|nullable|max:100|min:10',
+            'welcome'           => 'sometimes|nullable|max:1000|min:10',
+            'success'           => 'sometimes|nullable|max:1000|min:10',
             'token'             => 'required|max:10|min:5|unique:qrs,token,' . $this->id,
             'starts'            => 'sometimes|nullable|date',
             'ends'              => 'sometimes|nullable|date|after:starts',
