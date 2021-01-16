@@ -41,7 +41,7 @@ class QrCrudCrontroller extends CrudController
                 ->upload(true)
                 ->crop(true)
                 ->type('image');
-            CRUD::field('welcome')->label('Mensaje inicial')->type('ckeditor')->hint('Ej: ¡Estás a punto de adquirir una de las 100 entradas que regalamos!');
+            CRUD::field('welcome')->label('Mensaje inicial')->hint('Ej: ¡Estás a punto de adquirir una de las 100 entradas que regalamos!');
             CRUD::field('success')->label('Mensaje de confirmación')->type('ckeditor')->hint('Ej: Revisá tu email y pronto recibirás tu regalo.');
             CRUD::field('description')->label('Descripción del regalo')->type('textarea')->hint('Ej: Vale x2 entradas para ver a Maxi el día xx-xx en xxx. Para ingresar entrá por puerta xx y mostrá este mensaje.');
 

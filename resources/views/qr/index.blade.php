@@ -15,9 +15,9 @@
             @endif
             <div class="px-4 mt-4">
                 @if($qr->welcome)
-                <div class="alert alert-success d-flex align-items-center mb-4">
+                <div class="alert bg-primary d-flex align-items-center mb-4">
                     <img src="{{ asset('images/qr.png') }}" alt="" class="mr-3" style="max-height: 50px; width: auto;">
-                    <p class="font-weight-light pb-0 text-light">{!! $qr->welcome !!}</p>
+                    <p class="font-weight-light pb-0 text-dark">{{ $qr->welcome }}</p>
                 </div>
                 @endif
                 <h5 class="text-center mt-3">El último paso es <a href="{{ route('backpack.auth.login') }}">ingresar a tu cuenta</a> en <i>El Limonero digital</i> o si todavía no sos parte de nuestra comunidad <a href="{{ route('backpack.auth.register') }}">registrarte</a>.</h5>
@@ -26,14 +26,4 @@
     </div>
 </div>
 
-@endsection
-
-@section('styles')
-<style>
-    p {
-        color: #fff !important;
-        font-weight: 300;
-        font-size: 16px;
-    }
-</style>
 @endsection

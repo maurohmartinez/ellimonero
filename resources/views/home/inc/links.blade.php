@@ -18,7 +18,7 @@
                     <a href="{{ route('cita.con.el.amor') }}">
                         <div class="single-stories-card-content">
                             <div class="text-center">
-                                <img src="{{ asset('images/cita-con-el-amor.png') }}" alt="Mundo Maxi" style="width: 100%; height: auto;">
+                                <img src="{{ asset('images/cita-con-el-amor-final.png') }}" alt="Mundo Maxi" style="width: 100%; height: auto;">
                             </div>
                         </div>
                     </a>

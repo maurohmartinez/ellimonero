@@ -50,7 +50,7 @@
                     <h4>01 <span>ene</span></h4>
                 </div> -->
                 <div class="spc-scc-content">
-                    <h5>Episodio 3</h5>
+                    <h5>Episodio 4</h5>
                     <h3>Javier Calamaro</h3>
                     <p>El amor y la pasión son la misma cosa.</p>
                     <a class="btn btn-primary mt-3" href="https://www.youtube.com/watch?v=HBw0IOlNJA0&feature=youtu.be"><i class="la la-youtube"></i> Ver episodio</a>
@@ -76,5 +76,6 @@
                 </div>
             </div>
         </div>
+        <a class="btn btn-primary btn-block my-4" href="/">Tienda Limonera</a>
     </div>
 </div>
