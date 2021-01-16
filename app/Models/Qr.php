@@ -98,8 +98,8 @@ class Qr extends Model
                 }
             } else {
                 $this->attributes['image'] = '/storage/qr/' . $image;
-                dd($this->attributes['image']);
             }
+            dd($this->attributes['image']);
         }
     }
 
