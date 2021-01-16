@@ -10,6 +10,7 @@
                 </a>
             </div>
             <h5 class="auth-ingresar mb-2 text-center">REGISTRARME</h5>
+            <div class="text-center">@include('flash')</div>
             <div class="card card-login">
                 <div class="card-body">
                     <div class="col-12">
