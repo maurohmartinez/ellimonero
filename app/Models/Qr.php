@@ -30,6 +30,7 @@ class Qr extends Model
         'ends',
         'always_visible',
         'image',
+        'type',
         'active',
         'stock'
     ];
