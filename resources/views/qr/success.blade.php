@@ -33,7 +33,7 @@
         font-weight: 300;
         font-size: 16px;
     }
-    h5 {
+    h3 {
         color: #F7BE00 !important;
     }
 </style>
