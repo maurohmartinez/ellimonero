@@ -74,7 +74,7 @@ return [
         'qr' => [
             'driver' => 'local',
             'root' => storage_path('app/public/qr'),
-            'url' => '/',
+            'url' => env('APP_URL').'/',
             'visibility' => 'public',
         ],
     ],
