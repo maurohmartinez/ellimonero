@@ -23,7 +23,9 @@
                             @if($product->stock == 0)
                             <img style="position: absolute; width: 200px;" src="{{ asset('images/sold-out-banner.png') }}" alt="Sold Out">
                             @endif
+                            @if($product->images[0])
                             <img src="{{ asset($product->images[0]['image_url']) }}" alt="">
+                            @endif
                         </div>
                     <!-- </a> -->
                     <div class="single-shop-card-content section-bg">
