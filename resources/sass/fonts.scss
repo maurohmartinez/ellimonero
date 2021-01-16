@@ -1,15 +1,26 @@
 @font-face {
-    font-family: 'Nevrada';
-    src: url(../fonts/final/nevrada.ttf);
+    font-family: 'DM';
+    src: url(../fonts/final/DMSerifDisplay-Regular.ttf);
 }
 
 @font-face {
-    font-family: 'Angrecia';
-    src: url(../fonts/final/anglecia.otf);
+    font-family: 'Roboto Medium';
+    src: url(../fonts/final/Roboto-Medium.ttf);
 }
 
-// --menu-font
-// --title-font
-// --sub-title-font
-// --sub-title-font
-// -heading-font
+@font-face {
+    font-family: 'Roboto Regular';
+    src: url(../fonts/final/Roboto-Regular.ttf);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'DM' !important;
+}
+
+.text-subtitle {
+    font-family: 'Roboto Medium' !important;
+}
+
+p, small {
+    font-family: 'Roboto Regular' !important;
+}
