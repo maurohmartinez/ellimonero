@@ -3,23 +3,23 @@
         <div class="container">
             <div class="footer-top-wrapper d-flex justify-content-between">
                 <!--header-logo-->
-                <div class="footer-logo-area">
+                <div><!--class="footer-logo-area" -->
                     <div class="header-logo ">
                         <img src="{{ asset('images/logos/logo-800-w.png') }}" alt="" style="max-height: 80px; width: auto;">
                     </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <p>Un ritual de conexión en un lugar mágico...</p>
                     <div class="social-icon pt-40 pt-lg-15">
                         <h4>Seguinos</h4>
                         <ul class="d-flex align-items-center">
-                            <li><a href="#"><img src="/images/svg/facebook.svg" alt=""></a></li>
-                            <li><a href="#"><img src="/images/svg/instagram.svg" alt=""></a></li>
-                            <li><a href="#"><img src="/images/svg/twitter.svg" alt=""></a></li>
-                            <li><a href="#"><img src="/images/svg/youtube.svg" alt=""></a></li>
+                            <!-- <li><a href="#"><img src="/images/svg/facebook.svg" alt=""></a></li> -->
+                            <li><a href="https://www.instagram.com/maxipardooficial/"><img src="/images/svg/instagram.svg" alt=""></a></li>
+                            <!-- <li><a href="#"><img src="/images/svg/twitter.svg" alt=""></a></li> -->
+                            <li><a href="https://www.youtube.com/watch?v=N3gZk4-0KF0&feature=youtu.be"><img src="/images/svg/youtube.svg" alt=""></a></li>
                         </ul>
                     </div>
                 </div>
                 <!-- menu-bar -->
-                <div class="footer-menu-bar community-area">
+                <!-- <div class="footer-menu-bar community-area">
                     <h4>Community</h4>
                     <ul>
                         <li><a href="#">About</a></li>
@@ -39,11 +39,11 @@
                         <a href="#">email@email.com</a>
                         <p>+123 456 - 789</p>
                     </div>
-                    <!-- <div class="contact-app-link">
+                    <div class="contact-app-link">
                         <h4>See the Map</h4>
                         <a href="#">https://www.google.com.bd/maps</a>
-                    </div> -->
-                </div>
+                    </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -51,14 +51,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    <p>Copyright © 2020 Blooria All Rights Reserved.</p>
+                    <p>Copyright © 2021</p>
                 </div>
-                <div class="col-lg-6">
+                <!-- <div class="col-lg-6">
                     <ul class="footer-privacy-card">
                         <li><a href="#">Terms of Service</a></li>
                         <li><a href="#">Privacy Policy</a></li>
                     </ul>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

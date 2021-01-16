@@ -138,13 +138,14 @@ class DatabaseSeeder extends Seeder
         
         DB::table('qrs')->insert([
             'token' => 'si3u1',
-            'welcome_message' => '<p>¡Estás a un paso de adquirir una de las <u>100 entradas</u> que ofrecemos!</p>',
-            'success_message' => '<p>¡Listo! En breve recibirás un correo electrónico con tu regalo.</p>',
+            'welcome' => 'Estás a un paso de ganarte 2 entradas para ver a Maxi',
+            'success' => '<h5>¡Ganaste 2 entradas para ver un show de Maxi!</h5><p><br>¿Dónde? Calle Corrientes — ¿Cuándo? Durante el 2021.</p><p><small>* Apenas se confirme la fecha del recital te avisaremos con tiempo para que puedas programarlo.</small></p>',
             'description' => 'Vale x2 entradas para ver a Maxi el día xx-xx en xxx. Para ingresar entrá por puerta xx y mostrá este mensaje.',
-            'image' => '/storage/qr/test.jpg',
+            'image' => '/storage/qr/294c9acfa0f5363e0e470872dbddb96a.jpg',
             'stock' => 100,
             'always_visible' => 1,
             'active' => 1,
+            'type' => 'ticket',
             'starts' => '2021-01-01 00:00:00',
             'ends' => '2021-05-01 00:00:00',
             'created_at' => date('Y-m-d H:i:s'),

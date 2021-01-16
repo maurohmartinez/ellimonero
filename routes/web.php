@@ -17,8 +17,12 @@ use App\Http\Controllers\ProfileController;
 */
 
 Route::get('/', [PageController::class, 'home'])->name('home');
-Route::get('/qr/{token}', [PageController::class, 'qr'])->name('qr'); // si3u1
-Route::get('/producto/{slug}', [PageController::class, 'product'])->name('product'); // si3u1
+Route::get('/qr/{token}', [PageController::class, 'qr'])->name('qr'); // Sample: si3u1
+Route::get('/producto/{slug}', [PageController::class, 'product'])->name('product');
+
+// Cita con el amor
+Route::get('/cita-con-el-amor', [PageController::class, 'cita'])->name('cita.con.el.amor');
+Route::get('/rnf', [PageController::class, 'rnf'])->name('rnf');
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +37,7 @@ Route::group([
 ], function () {
     // Profile
     Route::get('/', [ProfileController::class, 'index'])->name('profile');
+    Route::get('/boleteria', [ProfileController::class, 'tickets'])->name('profile.tickets');
     Route::get('/orders', [ProfileController::class, 'orders'])->name('profile.orders');
     Route::get('/order/{order_number}', [ProfileController::class, 'order'])->name('profile.order');
     Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');

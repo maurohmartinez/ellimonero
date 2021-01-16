@@ -21,14 +21,32 @@ class PageController extends Controller
         $products = Product::activo()->orderBy('lft', 'ASC')->onTime()->get();
         return view('home.index', ['products' => $products]);
     }
+
+    /**
+     * Show cita con el amor landing
+     */
+    public function cita()
+    {
+        $this->data['title'] = 'Cita con el amor';
+        return view('cita.index', $this->data);
+    }
     
+    /**
+     * Show RNG landing
+     */
+    public function rnf()
+    {
+        $this->data['title'] = 'RNF';
+        return view('rnf.index', $this->data);
+    }
+
     /**
      * Show product
      */
     public function product($slug)
     {
         $product = Product::activo()->onTime()->where('slug', $slug)->firstOrFail();
-        return view('home.product', ['product' => $product]);
+        return view('product', ['product' => $product]);
     }
 
     /**
@@ -69,8 +87,12 @@ class PageController extends Controller
         if (backpack_user()->qr()->where('token', $token)->doesntExist()) {
             abort(404);
         }
-        $this->data['feedback'] = Qr::where('token', $token)->firstOrFail()->success_message;
+        
+        $qr = Qr::where('token', $token)->first();
+        
         $this->data['title'] = '¡QR escaneado!';
+        $this->data['qr'] = $qr;
+        
         return view('qr.success', $this->data);
     }
 
@@ -97,7 +119,7 @@ class PageController extends Controller
                 $this->data['feedback'] = 'El código QR escaneado está desactivado.';
                 break;
             case 'out_of_stock':
-                $this->data['feedback'] = 'Lo sentimos, pero se ha terminado el stock para el código QR escaneado.';
+                $this->data['feedback'] = 'Lo sentimos, pero se ha terminado el stock. En las próxmas semanas haremos nuevos sorteos y subastaremos productos de nuestros invitados especiales, ¡quedate cerca de nuestra Tienda Limonera!';
                 break;
         }
 

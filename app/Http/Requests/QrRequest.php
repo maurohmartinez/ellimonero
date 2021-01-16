@@ -3,7 +3,6 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
 class QrRequest extends FormRequest
 {
@@ -26,13 +25,9 @@ class QrRequest extends FormRequest
     public function rules()
     {
         return [
-            'welcome_message'   => 'required|max:100|min:10',
-            'success_message'   => 'required|max:100|min:10',
-            'error_message'     => 'required|max:100|min:10',
-            'email_message'     => 'required',
-            'token'             => 'required|max:10|min:5|unique:qrs',
-            'price_discount'    => 'sometimes|nullable|integer|lt:price',
-            'price_min'         => 'sometimes|nullable|integer',
+            'welcome'           => 'sometimes|nullable|max:100|min:10',
+            'success'           => 'sometimes|nullable|max:100|min:10',
+            'token'             => 'required|max:10|min:5|unique:qrs,token,' . $this->id,
             'starts'            => 'sometimes|nullable|date',
             'ends'              => 'sometimes|nullable|date|after:starts',
             'always_visible'    => 'boolean',

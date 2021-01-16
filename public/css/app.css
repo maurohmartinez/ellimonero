@@ -43886,8 +43886,9 @@ a.single-shop-card-img {
   .account-table-wrapper .table tbody tr th,
 .account-table-wrapper .table tbody tr td {
     width: 100%;
-    padding-left: 100px;
+    padding-left: 120px;
     position: relative;
+    font-size: 16px;
     text-align: right;
     padding-right: 15px !important;
   }
@@ -43897,7 +43898,7 @@ a.single-shop-card-img {
     content: attr(data-title) ": ";
     top: 50%;
     left: 15px;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: var(--text-medium);
     color: var(--menu-color);
     transform: translateY(-50%);

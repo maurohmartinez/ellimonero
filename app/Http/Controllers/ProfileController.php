@@ -27,7 +27,17 @@ class ProfileController extends Controller
     {
         $this->data['title'] = 'Compras';
         $this->data['orders'] = backpack_user()->orders()->latest()->get();
-        return view('profile.index', $this->data);
+        return view('profile.orders', $this->data);
+    }
+    
+    /**
+     * Show order
+     */
+    public function tickets()
+    {
+        $this->data['title'] = 'Boletería';
+        $this->data['tickets'] = backpack_user()->qr()->ticket()->get();
+        return view('profile.tickets', $this->data);
     }
     
     /**
@@ -37,7 +47,7 @@ class ProfileController extends Controller
     {
         $this->data['title'] = 'Compra';
         $this->data['order'] = backpack_user()->orders()->where('number', $order_number)->firstOrFail();
-        return view('profile.index', $this->data);
+        return view('profile.order', $this->data);
     }
 
     /**

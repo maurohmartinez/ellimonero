@@ -1,44 +1,12 @@
+@extends('layouts.app')
+
+@section('content')
 <div class="account-content-wrapper">
     <div class="container">
-        @include('flash')
         <div class="row">
-            <div class="col-xl-3">
-                <div class="account-order-list">
-                    <ul>
-                        <li>
-                            <a href="{{ route('profile') }}">
-                                <div class="order-list-wrapper">
-                                    <div class="order-list-img">
-                                        <img src="{{ asset('images/svg/edit.svg') }}" alt="">
-                                    </div>
-                                    <p>Editar datos</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('profile.orders') }}">
-                                <div class="order-list-wrapper">
-                                    <div class="order-list-img">
-                                        <img src="{{ asset('images/svg/shop-card.svg') }}" alt="">
-                                    </div>
-                                    <p>Compras</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('backpack.auth.logout') }}">
-                                <div class="order-list-wrapper">
-                                    <div class="order-list-img">
-                                        <img src="{{ asset('images/svg/logout.svg') }}" alt="">
-                                    </div>
-                                    <p>Salir</p>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            @include('profile.inc.nav', ['tab' => 'orders'])
             <div class="col-xl-9">
+                @include('flash')
                 <div class="row">
                     <div class="col-12 col-md-6 mb-4">
                         <h4 class="mb-2">Orden</h4>
@@ -93,3 +61,4 @@
         </div>
     </div>
 </div>
+@endsection

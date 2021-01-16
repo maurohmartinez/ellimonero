@@ -1,4 +1,4 @@
-<section class="shop-banner-area">
+<section class="shop-banner-area" id="tienda">
     <div class="banner-area-bg bg-primary">
         <div class="container">
             <div class="row px-4">
@@ -18,15 +18,21 @@
             @foreach($products as $product)
             <div class="col-xl-4 col-md-6 mb-50">
                 <div class="single-shop-card">
-                    <a href="{{ route('product', ['slug' => $product->slug]) }}" class="single-shop-card-img">
-                        @if($product->stock == 0)
-                        <img style="position: absolute; width: 200px;" src="{{ asset('images/sold-out-banner.png') }}" alt="Sold Out">
-                        @endif
-                        <img src="{{ asset($product->images[0]['image_url']) }}" alt="">
-                    </a>
+                    <!-- <a href="{{ route('product', ['slug' => $product->slug]) }}"> -->
+                        <div class="single-shop-card-img">
+                            @if($product->stock == 0)
+                            <img style="position: absolute; width: 200px;" src="{{ asset('images/sold-out-banner.png') }}" alt="Sold Out">
+                            @endif
+                            <img src="{{ asset($product->images[0]['image_url']) }}" alt="">
+                        </div>
+                    <!-- </a> -->
                     <div class="single-shop-card-content section-bg">
                         <div class="d-flex justify-content-between">
-                            <h5 class="mb-0"><a href="#">{{ $product->name }}</a></h5>
+                            <h5 class="mb-0 text-primary">
+                                <!-- <a href="#"> -->
+                                {{ $product->name }}
+                                <!-- </a> -->
+                            </h5>
                             @if($product->stock > 0)
                             <h4 class="mb-0">
                                 @if($product->price_discount)

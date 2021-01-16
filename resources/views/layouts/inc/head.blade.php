@@ -30,7 +30,14 @@
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="{{ asset('images/favicon//ms-icon-144x144.png') }}">
 <meta name="theme-color" content="#ffffff">
-
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PM8RLDBZC5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-PM8RLDBZC5');
+</script>
 <link href="{{ url('/').mix('css/app.css') }}" rel="stylesheet">
 <!-- <link href="https://via.placeholder.com/1000x600.png?text=IMAGE" rel="shortcut icon" type="image/x-icon"> -->
 <!-- <link href="https://via.placeholder.com/1000x600.png?text=IMAGE" rel="apple-touch-icon"> -->

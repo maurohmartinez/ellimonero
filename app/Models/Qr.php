@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Carbon\Carbon;
-use DateTimeZone;
 use Exception;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
@@ -23,8 +22,8 @@ class Qr extends Model
      * @var array
      */
     protected $fillable = [
-        'welcome_message',
-        'success_message',
+        'welcome',
+        'success',
         'description',
         'token',
         'starts',
@@ -66,28 +65,63 @@ class Qr extends Model
     {
         return $query->where('always_visible', 1)->where('stock', '>', 0);
     }
+    
+    /**
+     * Scope ticket
+     *
+     * @return object
+     */
+    public function scopeTicket($query)
+    {
+        return $query->where('type', 'ticket');
+    }
 
     /**
      * Image mutator
      *
      */
-    public function setImageAttribute($image)
+    public function setWelcomeImageAttribute($image)
     {
         if ($image == null) {
             Storage::disk('qr')->delete($image);
-            $this->attributes['image'] = '';
+            $this->attributes['welcome_image'] = '';
         } else {
             if (Str::startsWith($image, 'data:image')) {
                 try {
                     $image_created = Image::make($image)->encode('jpg', 100);
                     $imagename = md5($image . time()) . '.jpg';
                     Storage::disk('qr')->put($imagename, $image_created->stream());
-                    $this->attributes['image'] = '/storage/qr/' . $imagename;
+                    $this->attributes['welcome_image'] = '/storage/qr/' . $imagename;
                 } catch (Exception $err) {
                     Log::error('Eror while trying to save qr image.' . $err->getMessage());
                 }
             } else {
-                $this->attributes['image'] = '/storage/qr/' . $image;
+                $this->attributes['welcome_image'] = '/storage/qr/' . $image;
+            }
+        }
+    }
+    
+    /**
+     * Image mutator
+     *
+     */
+    public function setSuccessImageAttribute($image)
+    {
+        if ($image == null) {
+            Storage::disk('qr')->delete($image);
+            $this->attributes['success_image'] = '';
+        } else {
+            if (Str::startsWith($image, 'data:image')) {
+                try {
+                    $image_created = Image::make($image)->encode('jpg', 100);
+                    $imagename = md5($image . time()) . '.jpg';
+                    Storage::disk('qr')->put($imagename, $image_created->stream());
+                    $this->attributes['success_image'] = '/storage/qr/' . $imagename;
+                } catch (Exception $err) {
+                    Log::error('Eror while trying to save qr image.' . $err->getMessage());
+                }
+            } else {
+                $this->attributes['success_image'] = '/storage/qr/' . $image;
             }
         }
     }
