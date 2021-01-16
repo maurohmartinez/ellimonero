@@ -1,9 +1,9 @@
 @extends('layouts.plain')
 
 @section('content')
-<div class="container h-100">
+<div class="container pt-4">
     <div class="row align-items-center h-100">
-        <div class="col-12 col-md-8 col-lg-4 my-auto mx-auto">
+        <div class="col-12 col-md-8 col-lg-4 my-auto mx-auto p-sm-0">
             <div class="text-center pb-4">
                 <a href="{{ route('home') }}">
                     <img src="{{ asset('images/logos/logo-800-w.png') }}" alt="" style="max-height: 150px; width: auto;">

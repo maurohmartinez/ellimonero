@@ -1,7 +1,6 @@
 @extends('layouts.plain')
 
 @section('content')
-
 <div class="container pt-4">
     <div class="row align-items-center h-100">
         <div class="col-12 col-md-8 col-lg-4 my-auto mx-auto p-sm-0">
