@@ -16,7 +16,7 @@
 
                 <div class="col-12 col-sm-4 mb-30 grid-item main-link-card">
                     <a href="{{ route('cita.con.el.amor') }}">
-                        <div class="single-stories-card-content">
+                        <div class="single-stories-card-content" style="padding-right: 10px; padding-left: 10px; padding-top: 39px; padding-bottom: 39px;">
                             <div class="text-center">
                                 <img src="{{ asset('images/cita-con-el-amor-final.png') }}" alt="Mundo Maxi" style="width: 100%; height: auto;">
                             </div>

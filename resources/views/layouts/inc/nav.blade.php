@@ -21,7 +21,7 @@
                         <a href="{{ route('profile') }}" class="d-flex align-items-center"><i class="la la-user-circle" style="font-size: 25px;"></i></a>
                     </li>
                     <li class="sign-click relative" style="text-decoration: none;">
-                        <a href="{{ route('profile') }}" class="d-flex align-items-center"><i class="la la-ticket" style="font-size: 25px;"></i>
+                        <a href="{{ route('profile.tickets') }}" class="d-flex align-items-center"><i class="la la-ticket" style="font-size: 25px;"></i>
                             <sup>
                                 <span class="text-light" style="font-size: 13px; font-family:Arial, Helvetica, sans-serif;">{{ backpack_user()->qr()->ticket()->count() > 0 ? backpack_user()->qr()->ticket()->count() : '' }}</span>
                             </sup></a>
