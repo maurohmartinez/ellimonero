@@ -1,9 +1,8 @@
 <!-- Related post area start from here -->
-<section class="related-post-area" style="padding-top: 50px; padding-bottom: 50px;">
+<section class="mt-3">
     <div class="container">
-        <div class="row">
+        <div class="row py-0">
             <div class="row mx-auto" style="max-width: 800px;">
-
                 <div class="col-12 col-sm-4 mb-30 grid-item main-link-card">
                     <a href="https://www.instagram.com/maxipardooficial/" target="_blank">
                         <div class="single-stories-card-content">
@@ -13,7 +12,6 @@
                         </div>
                     </a>
                 </div>
-
                 <div class="col-12 col-sm-4 mb-30 grid-item main-link-card">
                     <a href="{{ route('cita.con.el.amor') }}">
                         <div class="single-stories-card-content" style="padding-right: 10px; padding-left: 10px; padding-top: 39px; padding-bottom: 39px;">
@@ -23,7 +21,6 @@
                         </div>
                     </a>
                 </div>
-
                 <div class="col-12 col-sm-4 mb-30 grid-item main-link-card">
                     <a href="{{ route('rnf') }}">
                         <div class="single-stories-card-content">
@@ -33,7 +30,6 @@
                         </div>
                     </a>
                 </div>
-
             </div>
         </div>
     </div>

@@ -20,7 +20,8 @@
                     <p class="font-weight-light pb-0 text-dark">{{ $qr->welcome }}</p>
                 </div>
                 @endif
-                <h5 class="text-center mt-3">El último paso es <a href="{{ route('backpack.auth.login') }}">ingresar a tu cuenta</a> en <i>El Limonero digital</i> o si todavía no sos parte de nuestra comunidad <a href="{{ route('backpack.auth.register') }}">registrarte</a>.</h5>
+                <a class="btn btn-primary btn-block my-3" href="{{ route('backpack.auth.register') }}">REGISTRARME</a>
+                <a class="btn btn-outline-primary btn-block" href="{{ route('backpack.auth.login') }}">INGRESAR</a>
             </div>
         </div>
     </div>

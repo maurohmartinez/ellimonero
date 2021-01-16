@@ -1,11 +1,14 @@
-<section class="shop-banner-area" id="tienda">
+@extends('layouts.app')
+
+@section('content')
+<section class="shop-banner-area pt-0">
     <div class="banner-area-bg bg-primary">
         <div class="container">
             <div class="row px-4">
                 <div class="shop-banner d-flex align-items-center justify-content-between">
                     <div class="shop-banner-content">
                         <h2 class="text-dark">Tienda</h2>
-                        <p class="text-dark">Mostrando 1-15 de 15 productos</p>
+                        <p class="text-dark">Desde el domingo 24/1</p>
                     </div>
                 </div>
             </div>
@@ -64,3 +67,4 @@
         </div>
     </div>
 </div>
+@endsection

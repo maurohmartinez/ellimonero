@@ -18,10 +18,19 @@ class PageController extends Controller
      */
     public function home()
     {
-        $products = Product::activo()->orderBy('lft', 'ASC')->onTime()->get();
-        return view('home.index', ['products' => $products]);
+        return view('home.index');
     }
 
+    /**
+     * Show shop
+     */
+    public function shop()
+    {
+        $products = Product::activo()->orderBy('lft', 'ASC')->onTime()->get();
+        $this->data['title'] = 'tienda';
+        return view('shop.index', ['products' => $products, 'data' => $this->data]);
+    }
+    
     /**
      * Show cita con el amor landing
      */

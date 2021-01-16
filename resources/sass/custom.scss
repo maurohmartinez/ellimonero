@@ -136,3 +136,10 @@ input,
         color: #fff !important;
     }
 }
+
+.main-btns {
+    margin: 15px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: solid 1px mix(#fff, #000, 25%);
+}

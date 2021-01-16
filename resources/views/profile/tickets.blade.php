@@ -1,9 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="account-content-wrapper">
+<div>
+    @include('profile.inc.banner_tickets')
     <div class="container">
-        <div class="row">
+        <div class="row pt-4">
             @include('profile.inc.nav', ['tab' => 'tickets'])
             <div class="col-xl-9">
                 @include('flash')

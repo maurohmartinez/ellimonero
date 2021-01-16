@@ -45315,6 +45315,13 @@ input:focus,
   color: #fff !important;
 }
 
+.main-btns {
+  margin: 15px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: solid 1px #404040;
+}
+
 @font-face {
   font-family: "DM";
   src: url(/fonts/DMSerifDisplay-Regular.ttf?56884099e217bf116854473dc106c03a);

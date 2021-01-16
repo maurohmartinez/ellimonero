@@ -24,6 +24,8 @@ Route::get('/producto/{slug}', [PageController::class, 'product'])->name('produc
 Route::get('/cita-con-el-amor', [PageController::class, 'cita'])->name('cita.con.el.amor');
 Route::get('/rnf', [PageController::class, 'rnf'])->name('rnf');
 
+Route::get('/shop', [PageController::class, 'shop'])->name('shop');
+
 /*
 |--------------------------------------------------------------------------
 | Logged Web Routes
