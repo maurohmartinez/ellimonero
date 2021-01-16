@@ -81,48 +81,23 @@ class Qr extends Model
      * Image mutator
      *
      */
-    public function setWelcomeImageAttribute($image)
+    public function setImageAttribute($image)
     {
         if ($image == null) {
             Storage::disk('qr')->delete($image);
-            $this->attributes['welcome_image'] = '';
+            $this->attributes['image'] = '';
         } else {
             if (Str::startsWith($image, 'data:image')) {
                 try {
                     $image_created = Image::make($image)->encode('jpg', 100);
                     $imagename = md5($image . time()) . '.jpg';
                     Storage::disk('qr')->put($imagename, $image_created->stream());
-                    $this->attributes['welcome_image'] = '/storage/qr/' . $imagename;
+                    $this->attributes['image'] = '/storage/qr/' . $imagename;
                 } catch (Exception $err) {
                     Log::error('Eror while trying to save qr image.' . $err->getMessage());
                 }
             } else {
-                $this->attributes['welcome_image'] = '/storage/qr/' . $image;
-            }
-        }
-    }
-    
-    /**
-     * Image mutator
-     *
-     */
-    public function setSuccessImageAttribute($image)
-    {
-        if ($image == null) {
-            Storage::disk('qr')->delete($image);
-            $this->attributes['success_image'] = '';
-        } else {
-            if (Str::startsWith($image, 'data:image')) {
-                try {
-                    $image_created = Image::make($image)->encode('jpg', 100);
-                    $imagename = md5($image . time()) . '.jpg';
-                    Storage::disk('qr')->put($imagename, $image_created->stream());
-                    $this->attributes['success_image'] = '/storage/qr/' . $imagename;
-                } catch (Exception $err) {
-                    Log::error('Eror while trying to save qr image.' . $err->getMessage());
-                }
-            } else {
-                $this->attributes['success_image'] = '/storage/qr/' . $image;
+                $this->attributes['image'] = '/storage/qr/' . $image;
             }
         }
     }
