@@ -92,12 +92,12 @@ class Qr extends Model
                     $image_created = Image::make($image)->encode('jpg', 100);
                     $imagename = md5($image . time()) . '.jpg';
                     Storage::disk('qr')->put($imagename, $image_created->stream());
-                    $this->attributes['image'] = $imagename;
+                    $this->attributes['image'] = '/storage/qr/' . $imagename;
                 } catch (Exception $err) {
                     Log::error('Eror while trying to save qr image.' . $err->getMessage());
                 }
             } else {
-                $this->attributes['image'] = $image;
+                $this->attributes['image'] = '/storage/qr/' . $image;
             }
         }
     }
