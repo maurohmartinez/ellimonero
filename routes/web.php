@@ -17,7 +17,8 @@ use App\Http\Controllers\ProfileController;
 */
 
 Route::get('/', [PageController::class, 'home'])->name('home');
-Route::get('/qr/{token}', [PageController::class, 'qr'])->name('qr'); // Sample: si3u1
+Route::get('/qr-home/{token}', [PageController::class, 'qr'])->name('qr'); // Sample: si3u1
+Route::get('/qr/{token}', [PageController::class, 'qr']); // Sample: si3u1
 Route::get('/producto/{slug}', [PageController::class, 'product'])->name('product');
 
 // Cita con el amor

@@ -61,7 +61,7 @@
             <div class="spc-sc-img">
                 <a href="https://www.youtube.com/watch?v=UYi8-Tu16Rc&feature=youtu.be" style="position: relative;">
                     <i class="la la-youtube text-light" style="position: absolute; font-size: 50px; top: 50%; left: 50%; transform: translate(-50%, -50%);"></i>
-                    <img src="{{ asset('images/cita/leo_garcia.jpg') }}" alt="">
+                    <img src="{{ asset('images/cita/fabi_cantilo.jpg') }}" alt="">
                 </a>
             </div>
             <div class="spc-sc-content-wrapper">
