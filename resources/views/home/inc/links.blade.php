@@ -4,7 +4,7 @@
         <div class="row py-0">
             <div class="row mx-auto" style="max-width: 800px;">
                 <div class="col-12 col-sm-4 mb-30 grid-item main-link-card">
-                    <a href="https://www.instagram.com/maxipardooficial/" target="_blank">
+                    <a href="{{ route('mundo.maxi') }}">
                         <div class="single-stories-card-content">
                             <div class="text-center">
                                 <img src="{{ asset('images/mundo-maxi.png') }}" alt="Mundo Maxi" style="width: 100%; height: auto;">

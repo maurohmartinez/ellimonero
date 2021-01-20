@@ -14,7 +14,7 @@
                 <div class="spc-scc-content">
                     <h5>Episodio 1</h5>
                     <h3>Coti Sorokin</h3>
-                    <p>La unión entre la música, la gastronomía y el juego con pelota.</p>
+                    <p>El equipo de RNF invita hoy a Coti Sorokin.</p>
                     <a class="btn btn-primary mt-3" href="https://www.youtube.com/watch?v=-keAuCUV-24&feature=emb_title&ab_channel=Am%C3%A9ricaTV"><i class="la la-youtube"></i> Ver episodio</a>
                 </div>
             </div>

@@ -48,6 +48,15 @@ class PageController extends Controller
         $this->data['title'] = 'RNF';
         return view('rnf.index', $this->data);
     }
+    
+    /**
+     * Show Mundo Maxi landing
+     */
+    public function mundoMaxi()
+    {
+        $this->data['title'] = 'Mundo Maxi';
+        return view('mundo-maxi.index', $this->data);
+    }
 
     /**
      * Show product

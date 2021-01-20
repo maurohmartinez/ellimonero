@@ -22,6 +22,7 @@ Route::get('/qr/{token}', [PageController::class, 'qr']); // Sample: si3u1
 Route::get('/producto/{slug}', [PageController::class, 'product'])->name('product');
 
 // Cita con el amor
+Route::get('/mundo-maxi', [PageController::class, 'mundoMaxi'])->name('mundo.maxi');
 Route::get('/cita-con-el-amor', [PageController::class, 'cita'])->name('cita.con.el.amor');
 Route::get('/rnf', [PageController::class, 'rnf'])->name('rnf');
 
