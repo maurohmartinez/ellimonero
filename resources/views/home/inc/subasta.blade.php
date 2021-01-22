@@ -1,4 +1,3 @@
-@if(count($subasta_products) > 0)
 <section class="shop-banner-area pt-0">
     <div class="banner-area-bg bg-primary">
         <div class="container">
@@ -24,4 +23,3 @@
         </div>
     </div>
 </div>
-@endif
