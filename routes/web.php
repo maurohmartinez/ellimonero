@@ -25,8 +25,8 @@ Route::get('/mundo-maxi', [PageController::class, 'mundoMaxi'])->name('mundo.max
 Route::get('/cita-con-el-amor', [PageController::class, 'cita'])->name('cita.con.el.amor');
 Route::get('/rnf', [PageController::class, 'rnf'])->name('rnf');
 
-Route::get('/shop', [PageController::class, 'shop'])->name('shop');
-Route::get('/subasta', [PageController::class, 'subasta'])->name('subasta');
+// Route::get('/shop', [PageController::class, 'shop'])->name('shop');
+// Route::get('/subasta', [PageController::class, 'subasta'])->name('subasta');
 
 /*
 |--------------------------------------------------------------------------
