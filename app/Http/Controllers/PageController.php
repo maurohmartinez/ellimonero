@@ -18,8 +18,7 @@ class PageController extends Controller
      */
     public function home()
     {
-        $subasta_products = Product::activo()->onTime()->where('type', 'auction')->orderBy('lft', 'ASC')->onTime()->get();
-        return view('home.index', ['subasta_products' => $subasta_products]);
+        return view('home.index');
     }
 
     /**
@@ -28,8 +27,18 @@ class PageController extends Controller
     public function shop()
     {
         $products = Product::activo()->where('type', 'regular')->orderBy('lft', 'ASC')->onTime()->get();
-        $this->data['title'] = 'tienda';
+        $this->data['title'] = 'Tienda';
         return view('shop.index', ['products' => $products, 'data' => $this->data]);
+    }
+    
+    /**
+     * Show subasta
+     */
+    public function subasta()
+    {
+        $products = Product::activo()->onTime()->where('type', 'auction')->orderBy('lft', 'ASC')->onTime()->get();
+        $this->data['title'] = 'Subasta';
+        return view('subasta.index', ['products' => $products, 'data' => $this->data]);
     }
 
     /**

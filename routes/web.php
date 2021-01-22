@@ -27,6 +27,7 @@ Route::get('/cita-con-el-amor', [PageController::class, 'cita'])->name('cita.con
 Route::get('/rnf', [PageController::class, 'rnf'])->name('rnf');
 
 Route::get('/shop', [PageController::class, 'shop'])->name('shop');
+Route::get('/subasta', [PageController::class, 'subasta'])->name('subasta');
 
 /*
 |--------------------------------------------------------------------------

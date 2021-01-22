@@ -1,4 +1,6 @@
-@if(count($subasta_products) > 0)
+@extends('layouts.app')
+
+@section('content')
 <section class="shop-banner-area pt-4">
     <div class="banner-area-bg bg-primary">
         <div class="container">
@@ -16,12 +18,20 @@
 <div class="shop-card-area py-70 py-md-50">
     <div class="container">
         <div class="row">
-            @foreach($subasta_products as $product)
-            <div class="col-xl-4 col-lg-6 col-md-6 col-12 mb-50">
-                @livewire('subasta-loop', ['product_id' => $product->id], key('subasta-loop-' . $product->id))
+            @if(count($products) > 0)
+            <div class="shop-card-area py-70 py-md-50">
+                <div class="container">
+                    <div class="row">
+                        @foreach($products as $product)
+                        <div class="col-lg-6 col-md-6 col-12 mb-50">
+                            @livewire('subasta-loop', ['product_id' => $product->id], key('subasta-loop-' . $product->id))
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
             </div>
-            @endforeach
+            @endif
         </div>
     </div>
 </div>
-@endif
+@endsection
