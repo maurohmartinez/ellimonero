@@ -19,7 +19,6 @@ use App\Http\Controllers\ProfileController;
 Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/qr-home/{token}', [PageController::class, 'qr'])->name('qr'); // Sample: si3u1
 Route::get('/qr/{token}', [PageController::class, 'qr']); // Sample: si3u1
-Route::get('/producto/{slug}', [PageController::class, 'product'])->name('product');
 
 // Cita con el amor
 Route::get('/mundo-maxi', [PageController::class, 'mundoMaxi'])->name('mundo.maxi');
@@ -53,6 +52,8 @@ Route::group([
     Route::post('/password', [ProfileController::class, 'updatePassword'])->name('profile.password.update');
     Route::get('/qr-error/{error}', [PageController::class, 'qrError'])->name('qr.error')->where('error', 'already_used|expired|failed|deactivated|out_of_stock|doesnt_exist');
     Route::get('/qr-success/{token}', [PageController::class, 'qrSuccess'])->name('qr.success');
+
+    Route::get('/producto/{slug}', [PageController::class, 'product'])->name('product');
 });
 
 
