@@ -58,10 +58,18 @@ class Items extends TableComponent
         $this->setTableHeadClass('checkout-header');
 
         return Cart::where('user_id', backpack_user()->id)->whereHas('product', function ($query) {
-            $query
-                ->activo()
-                ->onTime()
-                ->hasStock();
+            // Regular
+            $query->where(function ($q) {
+                $q->where('type', 'regular')
+                    ->activo()
+                    ->onTime()
+                    ->hasStock();
+            })
+                // is subasta
+                ->orWhere(function ($qr) {
+                    $qr->where('type', 'auction')
+                        ->activo();
+                });
         });
     }
 
@@ -71,7 +79,7 @@ class Items extends TableComponent
             'data-title' => $attribute
         ];
     }
-    
+
     public function setTableDataClass($attribute, $value): string
     {
         return $attribute;
@@ -84,13 +92,13 @@ class Items extends TableComponent
                 return $model->product['name'];
             }),
             Column::make('Precio/u', 'Precio/u')->format(function (Cart $model) {
-                return '$' . $model->product['price'] . '/u';
+                return '$' . ($model->product->type == 'regular' ? $model->product->price : $model->product->bids()->winner()->first()->bid) . '/u';
             }),
             Column::make('Cantidad', 'Cantidad')->format(function (Cart $model) {
                 return view('livewire.cart.item-quantity', ['itemId' => $model->id]);
             }),
             Column::make('Subtotal', 'Subtotal')->format(function (Cart $model) {
-                return '$' . $model->quantity * $model->product['price'];
+                return '$' . $model->quantity * ($model->product->type == 'regular' ? $model->product->price : $model->product->bids()->winner()->first()->bid);
             }),
             Column::make('', 'last-child')->format(function (Cart $model) {
                 return view('livewire.cart.item-action', ['itemId' => $model->id]);

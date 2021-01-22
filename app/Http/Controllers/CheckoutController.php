@@ -22,10 +22,18 @@ class CheckoutController extends Controller
     {
         $this->data['title'] = 'Checkout';
         $this->data['has_items'] = backpack_user()->cart()->whereHas('product', function ($query) {
-            $query
-                ->activo()
-                ->onTime()
-                ->hasStock();
+            // Regular
+            $query->where(function ($q) {
+                $q->where('type', 'regular')
+                    ->activo()
+                    ->onTime()
+                    ->hasStock();
+            })
+                // is subasta
+                ->orWhere(function ($qr) {
+                    $qr->where('type', 'auction')
+                        ->activo();
+                });
         })->exists();
         return view('checkout.index', $this->data);
     }
@@ -37,10 +45,18 @@ class CheckoutController extends Controller
     public function initPayment(Request $request)
     {
         if (backpack_user()->cart()->whereHas('product', function ($query) {
-            $query
-                ->activo()
-                ->onTime()
-                ->hasStock();
+            // Regular
+            $query->where(function ($q) {
+                $q->where('type', 'regular')
+                    ->activo()
+                    ->onTime()
+                    ->hasStock();
+            })
+                // is subasta
+                ->orWhere(function ($qr) {
+                    $qr->where('type', 'auction')
+                        ->activo();
+                });
         })->doesntExist()) {
             abort(404);
         }
@@ -55,12 +71,20 @@ class CheckoutController extends Controller
                 'observations'  => $request->observations
             ]);
 
+            // Select all user's bids and remove
+            foreach (backpack_user()->cart()->get() as $item) {
+                $item->product->bids()->delete();
+            }
+
             // Clear cart
             backpack_user()->cart()->delete();
 
             // Decrement stock for products
-            foreach ($order->products as $product) {
-                Product::find($product['id'])->decrement('stock', $product['quantity']);
+            foreach ($order->products as $orderProduct) {
+                $product = Product::find($orderProduct['id']);
+                if($product->type == 'regular'){
+                    $product->decrement('stock', $product['quantity']);
+                }
             }
 
             DB::commit();
@@ -181,15 +205,23 @@ class CheckoutController extends Controller
     private function getCartTotal()
     {
         $items = backpack_user()->cart()->whereHas('product', function ($query) {
-            $query
-                ->activo()
-                ->onTime()
-                ->hasStock();
+            // Regular
+            $query->where(function ($q) {
+                $q->where('type', 'regular')
+                    ->activo()
+                    ->onTime()
+                    ->hasStock();
+            })
+                // is subasta
+                ->orWhere(function ($qr) {
+                    $qr->where('type', 'auction')
+                        ->activo();
+                });
         })->get();
 
         $total  = 0;
         foreach ($items as $item) {
-            $total += $item->product->final_price * $item->quantity;
+            $total += ($item->product->type == 'regular' ? $item->product->final_price : $item->product->bids()->winner()->first()->bid) * $item->quantity;
         }
 
         return $total;
@@ -204,10 +236,18 @@ class CheckoutController extends Controller
         $products = [];
 
         $items = backpack_user()->cart()->whereHas('product', function ($query) {
-            $query
-                ->activo()
-                ->onTime()
-                ->hasStock();
+            // Regular
+            $query->where(function ($q) {
+                $q->where('type', 'regular')
+                    ->activo()
+                    ->onTime()
+                    ->hasStock();
+            })
+                // is subasta
+                ->orWhere(function ($qr) {
+                    $qr->where('type', 'auction')
+                        ->activo();
+                });
         })->get();
 
         foreach ($items as $item) {
@@ -216,7 +256,7 @@ class CheckoutController extends Controller
                 'name' => $item->product->name,
                 'image' => $item->product->images[0]['image_url'],
                 'description' => $item->product->description,
-                'price' => $item->product->final_price,
+                'price' => $item->product->type == 'regular' ? $item->product->final_price : $item->product->bids()->winner()->first()->bid,
                 'quantity' => $item->quantity,
             ];
         }

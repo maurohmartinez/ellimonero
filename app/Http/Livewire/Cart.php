@@ -36,10 +36,18 @@ class Cart extends Component
     public function countProducts()
     {
         $this->count = backpack_user()->cart()->whereHas('product', function ($query) {
-            $query
-                ->activo()
-                ->onTime()
-                ->hasStock();
+            // Regular
+            $query->where(function ($q) {
+                $q->where('type', 'regular')
+                    ->activo()
+                    ->onTime()
+                    ->hasStock();
+            })
+            // is subasta
+                ->orWhere(function ($qr) {
+                    $qr->where('type', 'auction')
+                        ->activo();
+                });
         })->count();
     }
 }

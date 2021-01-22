@@ -26,9 +26,9 @@
                                 <span class="text-light" style="font-size: 13px; font-family:Arial, Helvetica, sans-serif;">{{ backpack_user()->qr()->ticket()->count() > 0 ? backpack_user()->qr()->ticket()->count() : '' }}</span>
                             </sup></a>
                     </li>
-                    <!-- <li style="text-decoration: none;" class="px-3">
+                    <li style="text-decoration: none;" class="px-3">
                         <livewire:cart />
-                    </li> -->
+                    </li>
                     @else
                     <li class="sign-click relative px-2" style="text-decoration: none;">
                         <a href="{{ route('backpack.auth.login') }}">Ingresar</a>

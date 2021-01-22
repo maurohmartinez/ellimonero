@@ -29,7 +29,7 @@
                     <div class="checkout-dtls mb-0 p-3 mx-sm-4 mx-md-0">
                         <div class="checkout-shipping checkout-comon-width">
                             <h5>Entrega</h5>
-                            <p class="text-secondary">* Retiro personalmente</p>
+                            <p class="text-secondary">* Coordinar con producción</p>
                         </div>
                         <div class="checkout-amount checkout-comon-width">
                             <h5>Subtotal</h5>

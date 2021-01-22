@@ -1,7 +1,6 @@
 // Display toast messages
 window.livewire.on('feedback-success', ({ title = '¡Listo!' }) => {
     Swal.fire({
-        theme: 'dark',
         title: title,
         timer: 1700,
         timerProgressBar: true,
@@ -13,9 +12,21 @@ window.livewire.on('feedback-success', ({ title = '¡Listo!' }) => {
     });
 });
 
+window.livewire.on('feedback-error', ({ title = '¡Listo!' }) => {
+    Swal.fire({
+        title: title,
+        timer: 3000,
+        timerProgressBar: true,
+        icon: 'error',
+        showConfirmButton: false,
+        customClass: {
+            'title': 'custom-title-swal'
+        }
+    });
+});
+
 window.livewire.on('confirm-action', ({ emitTo, action, itemId, text = '¿Estás seguro?' }) => {
     Swal.fire({
-        theme: 'dark',
         title: text,
         icon: 'warning',
         closeOnClickOutside: false,

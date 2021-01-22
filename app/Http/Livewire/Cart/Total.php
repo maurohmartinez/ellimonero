@@ -35,15 +35,23 @@ class Total extends Component
     public function getTotal()
     {
         $items = backpack_user()->cart()->whereHas('product', function ($query) {
-            $query
-                ->activo()
-                ->onTime()
-                ->hasStock();
+            // Regular
+            $query->where(function ($q) {
+                $q->where('type', 'regular')
+                    ->activo()
+                    ->onTime()
+                    ->hasStock();
+            })
+                // is subasta
+                ->orWhere(function ($qr) {
+                    $qr->where('type', 'auction')
+                        ->activo();
+                });
         })->get();
 
         $total  = 0;
         foreach ($items as $item) {
-            $total += $item->product->final_price * $item->quantity;
+            $total += ($item->product->type == 'regular' ? $item->product->final_price : $item->product->bids()->winner()->first()->bid) * $item->quantity;
         }
 
         $this->total = $total;

@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'name' => 'Administrador Tester',
+            'name' => 'Mauro Martínez',
             'email' => 'test@test.com',
             'is_admin' => true,
             'password' => '$2y$10$xVaTRwYeYkHYaEkivqpANO/rSifPX8p9.4MyE5qDcdi6aZX4fnp2K', // test
@@ -99,35 +99,79 @@ class DatabaseSeeder extends Seeder
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
-        
-        for($i=1; $i<=20; $i++){
-            DB::table('products')->insert([
-                'name' => 'Producto ' . $i,
-                'slug' => 'producto-' . $i,
-                'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
-                'content' => '<h2>Test de producto</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>',
-                'starts' => '2021-01-01 00:00:00',
-                'ends' => '2021-05-01 00:00:00',
-                'type' => $i <= 5 ? 'regular' : 'auction',
-                'price' => rand(100, 900),
-                'price_min' => $i <= 5 ? null : 300,
-                'images' => '[{"image_url":"/storage/products/producto.jpg"}]',
-                'timeframe' => 'always',
-                'active' => 1,
-                'new' => 0,
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s')
-            ]);
-        }
+
+        DB::table('products')->insert([
+            'name' => 'Producto 1',
+            'slug' => 'producto-1',
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
+            'content' => '<h2>Test de producto</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>',
+            'starts' => '2021-01-01 00:00:00',
+            'ends' => '2021-05-01 00:00:00',
+            'type' => 'regular',
+            'price' => 900,
+            'images' => '[{"image_url":"/storage/products/02678edd6a2b657421f5c4d50527f66e.jpg"}]',
+            'timeframe' => 'always',
+            'active' => 1,
+            'new' => 0,
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
+        DB::table('products')->insert([
+            'name' => 'Producto 2',
+            'slug' => 'producto-2',
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
+            'content' => '<h2>Test de producto</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>',
+            'starts' => '2021-01-01 00:00:00',
+            'ends' => '2021-05-01 00:00:00',
+            'type' => 'regular',
+            'price' => 850,
+            'images' => '[{"image_url":"/storage/products/02678edd6a2b657421f5c4d50527f66e.jpg"}]',
+            'timeframe' => 'always',
+            'active' => 1,
+            'new' => 0,
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
+        DB::table('products')->insert([
+            'name' => 'Producto 3',
+            'slug' => 'producto-3',
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
+            'content' => '<h2>Test de producto</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>',
+            'starts' => '2021-01-01 00:00:00',
+            'ends' => '2021-05-01 00:00:00',
+            'type' => 'auction',
+            'price' => 500,
+            'stock' => 1,
+            'images' => '[{"image_url":"/storage/products/02678edd6a2b657421f5c4d50527f66e.jpg"}]',
+            'timeframe' => 'always',
+            'active' => 1,
+            'new' => 0,
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
+        DB::table('products')->insert([
+            'name' => 'Producto 4',
+            'slug' => 'producto-4',
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
+            'content' => '<h2>Test de producto</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>',
+            'starts' => '2021-01-01 00:00:00',
+            'ends' => '2021-05-01 00:00:00',
+            'type' => 'auction',
+            'price' => 550,
+            'stock' => 1,
+            'images' => '[{"image_url":"/storage/products/02678edd6a2b657421f5c4d50527f66e.jpg"}]',
+            'timeframe' => 'always',
+            'active' => 1,
+            'new' => 0,
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
 
         DB::table('popups')->insert([
             'title' => 'Entrada gratis',
             'subtitle' => 'Obtené tu regalo',
             'slug' => 'obtene-tu-entrada-gratis',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
-            'type' => $i <= 5 ? 'regular' : 'auction',
-            'price' => 0,
-            'price_min' => null,
             'images' => '[{"image_url":"/storage/popups/popup.jpg"},{"image_url":"/storage/popups/popup.jpg"}]',
             'active' => 1,
             'starts' => '2021-01-01 00:00:00',

@@ -29,7 +29,7 @@ class ProfileController extends Controller
         $this->data['orders'] = backpack_user()->orders()->latest()->get();
         return view('profile.orders', $this->data);
     }
-    
+
     /**
      * Show order
      */
@@ -39,7 +39,7 @@ class ProfileController extends Controller
         $this->data['tickets'] = backpack_user()->qr()->ticket()->get();
         return view('profile.tickets', $this->data);
     }
-    
+
     /**
      * Show order
      */
@@ -123,10 +123,18 @@ class ProfileController extends Controller
     {
         $this->data['title'] = 'Checkout';
         $this->data['items'] = backpack_user()->cart()->whereHas('product', function ($query) {
-            $query
-                ->activo()
-                ->onTime()
-                ->hasStock();
+            // Regular
+            $query->where(function ($q) {
+                $q->where('type', 'regular')
+                    ->activo()
+                    ->onTime()
+                    ->hasStock();
+            })
+                // is subasta
+                ->orWhere(function ($qr) {
+                    $qr->where('type', 'auction')
+                        ->activo();
+                });
         })->get();
         return view('checkout.index', $this->data);
     }

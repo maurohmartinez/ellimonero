@@ -19,10 +19,6 @@ class CreatePopupsTable extends Migration
             $table->string('subtitle');
             $table->string('slug')->unique();
             $table->string('description')->nullable();
-            $table->enum('type', ['auction', 'regular'])->default('regular');
-            $table->integer('price');
-            $table->integer('price_discount')->nullable();
-            $table->integer('price_min')->nullable();
             $table->timestamp('starts')->nullable();
             $table->timestamp('ends')->nullable();
             $table->longText('images')->nullable();

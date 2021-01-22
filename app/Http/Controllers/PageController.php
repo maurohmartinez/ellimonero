@@ -18,7 +18,8 @@ class PageController extends Controller
      */
     public function home()
     {
-        return view('home.index');
+        $subasta_products = Product::activo()->onTime()->where('type', 'auction')->orderBy('lft', 'ASC')->onTime()->get();
+        return view('home.index', ['subasta_products' => $subasta_products]);
     }
 
     /**
@@ -26,11 +27,11 @@ class PageController extends Controller
      */
     public function shop()
     {
-        $products = Product::activo()->orderBy('lft', 'ASC')->onTime()->get();
+        $products = Product::activo()->where('type', 'regular')->orderBy('lft', 'ASC')->onTime()->get();
         $this->data['title'] = 'tienda';
         return view('shop.index', ['products' => $products, 'data' => $this->data]);
     }
-    
+
     /**
      * Show cita con el amor landing
      */
@@ -39,7 +40,7 @@ class PageController extends Controller
         $this->data['title'] = 'Cita con el amor';
         return view('cita.index', $this->data);
     }
-    
+
     /**
      * Show RNG landing
      */
@@ -48,7 +49,7 @@ class PageController extends Controller
         $this->data['title'] = 'RNF';
         return view('rnf.index', $this->data);
     }
-    
+
     /**
      * Show Mundo Maxi landing
      */
@@ -64,7 +65,7 @@ class PageController extends Controller
     public function product($slug)
     {
         $product = Product::activo()->onTime()->where('slug', $slug)->firstOrFail();
-        return view('product', ['product' => $product]);
+        return view('shop.product', ['product' => $product]);
     }
 
     /**
@@ -105,12 +106,12 @@ class PageController extends Controller
         if (backpack_user()->qr()->where('token', $token)->doesntExist()) {
             abort(404);
         }
-        
+
         $qr = Qr::where('token', $token)->first();
-        
+
         $this->data['title'] = '¡QR escaneado!';
         $this->data['qr'] = $qr;
-        
+
         return view('qr.success', $this->data);
     }
 

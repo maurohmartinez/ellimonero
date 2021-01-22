@@ -1,11 +1,14 @@
 @component('mail::message')
+
+<img src="{{ url('images/logos/logo-800.png') }}" alt="Logo El Limonero" style="width: 250px; height: 178px; margin-bottom: 20px;">
+
 # Detalles de tu orden
 
 @component('mail::table')
 | Producto      | Cantidad        | Precio |
 | :------------ | :------------ | :------- |
 @foreach($order->products as $product)
-| {{ $product['name'] }}  | {{ $product['quantity'] }} | {{ $product['price'] }} |
+| {{ $product['name'] }}  | {{ $product['quantity'] }} | ${{ $product['price'] }} |
 @endforeach
 | <strong>Total a pagar</strong> |  | <strong>${{ $order['total'] }}</strong> |
 @endcomponent

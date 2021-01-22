@@ -5,7 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Order;
 use Livewire\Component;
 
-class Ordertems extends Component
+class OrderItems extends Component
 {
     public $order_number;
     public $items;

@@ -33,7 +33,6 @@ class Product extends Model
         'type',
         'price',
         'price_discount',
-        'price_min',
         'starts',
         'ends',
         'images',
@@ -94,6 +93,15 @@ class Product extends Model
             }
             $this->attributes['images'] = json_encode($saved, JSON_UNESCAPED_SLASHES);
         }
+    }
+
+    /**
+     * Get bids
+     * 
+     */
+    public function bids()
+    {
+        return $this->hasMany('App\Models\Bid', 'product_id', 'id');
     }
 
     /**
@@ -168,7 +176,7 @@ class Product extends Model
     public function scopeOnTime($query)
     {
         $now = Carbon::now(new DateTimeZone('America/Argentina/Buenos_Aires'));
-        return $query->where('starts', '<', $now)->where('ends', '>', $now);
+        return $query->where('starts', '<=', $now)->where('ends', '>=', $now);
     }
 
     /**
