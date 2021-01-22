@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="product-information-area">
+<section>
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-5">
