@@ -1,6 +1,6 @@
-<div>
+<div wire:poll.10s="loadInfo">
     @if(!$product->ends->isPast())
-    <div class="d-flex align-items-center justify-content-between" wire:poll.10ms>
+    <div class="d-flex align-items-center justify-content-between">
         <div style="background-color: #161616;">
             <button wire:click="minus" class="btn btn-dark mt-0 px-0" style="display: inline; width: 40px;" key="button-minus">
                 <i wire:loading.remove wire:target="minus" class="la la-minus"></i>
