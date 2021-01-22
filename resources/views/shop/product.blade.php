@@ -23,7 +23,7 @@
             </div>
             <div class="col-lg-7">
                 <div class="pt-4">
-                    <h3>{{ $product['name'] }}</h3>
+                    <h3 class="mb-3">{{ $product['name'] }}</h3>
                     <!-- <div class="product-reviews">
                         <div class="review__rating">
                             <input type="radio" checked value='0' name='rating' />
