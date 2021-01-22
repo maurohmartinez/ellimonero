@@ -22,7 +22,7 @@
                 </div>
             </div>
             <div class="col-lg-7">
-                <div class="product-information-dtls">
+                <div class="pt-4">
                     <h3>{{ $product['name'] }}</h3>
                     <!-- <div class="product-reviews">
                         <div class="review__rating">
@@ -47,7 +47,7 @@
                     @endif
                     @endif
 
-                    <p>{{ $product->description }}</p>
+                    <div class="content-product pb-4">{!! $product->description !!}</div>
 
                     @if($product->stock > 0)
                     @if(backpack_auth()->check())
@@ -64,7 +64,7 @@
         </div>
     </div>
 </section>
-<div class="product-information-tabs-area pb-md-50">
+<!-- <div class="product-information-tabs-area pb-md-50">
     <div class="container">
         <div class="tab-content product-nav-tab" id="pills-tabContent">
             <div class="tab-pane fade show active product-nav-tab-content" id="description">
@@ -72,7 +72,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 @endsection
 
 @section('scripts')

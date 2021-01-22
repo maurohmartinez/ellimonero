@@ -43,7 +43,7 @@ class SubastaAdd extends Component
     public function loadInfo()
     {
         $this->product = Product::find($this->product_id);
-        $this->current_price = $this->product->bids()->exists() ? ($this->product->bids()->winner()->first()->bid + 100) : $this->product->price;
+        $this->current_price = $this->product->bids()->exists() ? ($this->product->bids()->winner()->first()->bid + 200) : $this->product->price;
         $this->current_winner = $this->product->bids()->exists() ? $this->product->bids()->winner()->first()->user->name : null;
         $this->current_winner_price = $this->product->bids()->exists() ? $this->product->bids()->winner()->first()->bid : $this->product->price;
         $this->countdown = $this->product->ends;
@@ -91,7 +91,7 @@ class SubastaAdd extends Component
      */
     public function plus()
     {
-        $this->current_price += 100;
+        $this->current_price += 200;
     }
 
     /**
@@ -100,6 +100,6 @@ class SubastaAdd extends Component
      */
     public function minus()
     {
-        $this->current_price = ($this->current_price - 100) <= $this->current_winner_price ? $this->current_price : $this->current_price - 100;
+        $this->current_price = ($this->current_price - 200) <= $this->current_winner_price ? $this->current_price : $this->current_price - 200;
     }
 }

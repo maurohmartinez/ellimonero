@@ -28,7 +28,7 @@ class PageController extends Controller
     {
         $products = Product::activo()->where('type', 'regular')->orderBy('lft', 'ASC')->onTime()->get();
         $this->data['title'] = 'Tienda';
-        return view('shop.index', ['products' => $products, 'data' => $this->data]);
+        return view('shop.regular', ['products' => $products, 'data' => $this->data]);
     }
     
     /**
@@ -38,7 +38,7 @@ class PageController extends Controller
     {
         $products = Product::activo()->onTime()->where('type', 'auction')->orderBy('lft', 'ASC')->onTime()->get();
         $this->data['title'] = 'Subasta';
-        return view('subasta.index', ['products' => $products, 'data' => $this->data]);
+        return view('shop.subasta', ['products' => $products, 'data' => $this->data]);
     }
 
     /**
@@ -73,7 +73,7 @@ class PageController extends Controller
      */
     public function product($slug)
     {
-        $product = Product::activo()->onTime()->where('slug', $slug)->firstOrFail();
+        $product = Product::activo()->where('slug', $slug)->firstOrFail();
         return view('shop.product', ['product' => $product]);
     }
 
