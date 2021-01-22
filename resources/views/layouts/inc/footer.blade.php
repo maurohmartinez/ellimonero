@@ -51,7 +51,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    <p>Copyright © 2021</p>
+                    <p>Copyright © 2021
+                    @if(backpack_auth()->check())
+                    @if(backpack_user()->hasRole('Admin') || backpack_user()->is_admin)
+                        <a href="{{ route('backpack.dashboard') }}" class="ml-3">cPanel</a>
+                    @endif
+                    @endif
+                    </p>
                 </div>
                 <!-- <div class="col-lg-6">
                     <ul class="footer-privacy-card">
