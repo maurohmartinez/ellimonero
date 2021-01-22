@@ -54,11 +54,11 @@
                             {{ Str::words($product->description, 50) }}
                         </div>
                         @if($product->stock > 0)
-                        <div class="mt-4">
+                        <!-- <div class="mt-4"> -->
                             @if(backpack_auth()->check())
-                            @livewire('product-add', ['product_id' => $product->id], key('product-' . $product->id))
+                            {{-- @livewire('product-add', ['product_id' => $product->id], key('product-' . $product->id)) --}}
                             @endif
-                        </div>
+                        <!-- </div> -->
                         @endif
                     </div>
                 </div>

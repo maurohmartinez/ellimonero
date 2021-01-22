@@ -22,9 +22,9 @@
                 {{ Str::words($product->description, 50) }}
             </div>
             @if($product->stock > 0)
-            <div class="mt-4">
-                @livewire('subasta-add', ['product_id' => $product->id], key('subasta-add-' . $product->id))
-            </div>
+            <!-- <div class="mt-4"> -->
+                {{-- @livewire('subasta-add', ['product_id' => $product->id], key('subasta-add-' . $product->id)) --}}
+            <!-- </div> -->
             @endif
         </div>
     </div>
