@@ -8,7 +8,7 @@
                 <div class="shop-banner d-flex align-items-center justify-content-between">
                     <div class="shop-banner-content">
                         <h2 class="text-dark">Tienda</h2>
-                        <p class="text-dark">Desde el domingo 24/1</p>
+                        <!-- <p class="text-dark">Desde el domingo 24/1</p> -->
                     </div>
                 </div>
             </div>
