@@ -21,7 +21,7 @@
             @foreach($products as $product)
             <div class="col-xl-4 col-md-6 mb-50">
                 <div class="single-shop-card">
-                    <!-- <a href="{{ route('product', ['slug' => $product->slug]) }}"> -->
+                    <!-- <a href="{{ route('product', ['id' => $product->id]) }}"> -->
                         <div class="single-shop-card-img">
                             @if($product->stock == 0)
                             <img style="position: absolute; width: 200px;" src="{{ asset('images/sold-out-banner.png') }}" alt="Sold Out">

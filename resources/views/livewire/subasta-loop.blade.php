@@ -1,6 +1,6 @@
 <div>
     <div class="single-shop-card">
-        <a href="{{ route('product', ['slug' => $product->slug]) }}">
+        <a href="{{ route('product', ['id' => $product->id]) }}">
             <div style="position: absolute; top: 0px; right: 15px;" class="bg-danger text-light p-2"><i class="la la-clock"></i> <span wire:ignore id="timer-{{ $product->slug }}"></span></div>
             <div>
                 @if($product->images)
@@ -13,7 +13,7 @@
         <div class="single-shop-card-content section-bg">
             <div class="d-flex justify-content-between">
                 <h5 class="mb-0">
-                    <a href="{{ route('product', ['slug' => $product->slug]) }}">
+                    <a href="{{ route('product', ['id' => $product->id]) }}">
                         {{ $product->name }}
                     </a>
                 </h5>

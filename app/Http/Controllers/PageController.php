@@ -71,9 +71,9 @@ class PageController extends Controller
     /**
      * Show product
      */
-    public function product($slug)
+    public function product($id)
     {
-        $product = Product::activo()->where('slug', $slug)->firstOrFail();
+        $product = Product::activo()->whereId($id)->firstOrFail();
         return view('shop.product', ['product' => $product]);
     }
 

@@ -77,6 +77,7 @@
 
 @section('scripts')
 @if($product->type == 'auction')
+@if($product->starts->isPast())
 <script>
     // Set the date we're counting down to
     var countDownDatetimer = "{{ $product->ends->isoFormat('x') }}";
@@ -111,5 +112,10 @@
     }
     setTime();
 </script>
+@else
+<script>
+    document.getElementById("timer-{{ $product->slug }}").innerHTML = "Comienza el {{ $product->starts->isoFormat('LLL') }}";
+</script>
+@endif
 @endif
 @endsection
