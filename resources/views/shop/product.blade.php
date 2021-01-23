@@ -24,21 +24,6 @@
             <div class="col-lg-7">
                 <div class="pt-4">
                     <h4 class="mb-3">{{ $product['name'] }}</h4>
-                    <!-- <div class="product-reviews">
-                        <div class="review__rating">
-                            <input type="radio" checked value='0' name='rating' />
-                            <label>★</label>
-                            <input type="radio" value='1' name='rating' />
-                            <label>★</label>
-                            <input type="radio" value='2' name='rating' />
-                            <label>★</label>
-                            <input type="radio" value='3' name='rating' />
-                            <label>★</label>
-                            <input type="radio" value='4' name='rating' />
-                            <label>★</label>
-                        </div>
-                    </div> -->
-
                     @if($product->stock > 0 && $product->type == 'regular')
                     @if($product->price_discount)
                     <h4><s>${{ $product->price }}</s> {{ $product->price_discount }}</h4>
