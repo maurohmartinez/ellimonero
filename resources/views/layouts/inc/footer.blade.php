@@ -14,7 +14,7 @@
                             <!-- <li><a href="#"><img src="/images/svg/facebook.svg" alt=""></a></li> -->
                             <li><a href="https://www.instagram.com/maxipardooficial/"><img src="/images/svg/instagram.svg" alt=""></a></li>
                             <!-- <li><a href="#"><img src="/images/svg/twitter.svg" alt=""></a></li> -->
-                            <li><a href="https://www.youtube.com/watch?v=N3gZk4-0KF0&feature=youtu.be"><img src="/images/svg/youtube.svg" alt=""></a></li>
+                            <li><a href="https://www.youtube.com/user/maxipardo"><img src="/images/svg/youtube.svg" alt=""></a></li>
                         </ul>
                     </div>
                 </div>
