@@ -14,7 +14,7 @@ class QrRequest extends FormRequest
     public function authorize()
     {
         // only allow updates if the user is logged in
-        return backpack_auth()->check() && backpack_user()->is_admin;
+        return backpack_auth()->check() && (backpack_user()->hasRole('Admin') || backpack_user()->is_admin);
     }
 
     /**
