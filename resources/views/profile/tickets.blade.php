@@ -23,7 +23,7 @@
                             <tr>
                                 <td data-title="Código">{{ strtoupper('#QR-' . $ticket->token . '-' . $ticket->id) }}</th>
                                 <td data-title="Descripción">{{ $ticket->description }}</td>
-                                <td data-title="Recibido">{{ $ticket->created_at->isoFormat('LL') }}</td>
+                                <td data-title="Fecha">A confirmar</td>
                             </tr>
                             @endforeach
                         </tbody>
