@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CheckoutController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
@@ -27,6 +28,7 @@ Route::get('/rnf', [PageController::class, 'rnf'])->name('rnf');
 
 Route::get('/shop', [PageController::class, 'shop'])->name('shop');
 Route::get('/subasta', [PageController::class, 'subasta'])->name('subasta');
+Route::post('/popup', [RegisterController::class, 'registerPopup'])->name('popup.register');
 
 /*
 |--------------------------------------------------------------------------

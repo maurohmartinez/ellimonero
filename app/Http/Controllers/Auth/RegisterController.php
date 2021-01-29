@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\Qr;
 use App\Models\User;
 use Backpack\CRUD\app\Library\Auth\RegistersUsers;
 use Exception;
@@ -38,7 +39,7 @@ class RegisterController extends Controller
     public function __construct()
     {
         // Redirect if logged
-        if(Auth::check()){
+        if (Auth::check()) {
             return redirect(route('home'));
         }
 
@@ -108,6 +109,53 @@ class RegisterController extends Controller
     }
 
     /**
+     * Handle register request from popup.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function registerPopup(Request $request)
+    {
+        $qr = Qr::where('token', 'si3u1')->first();
+
+        // Already exists?
+        if (User::whereEmail($request->email)->exists()) {
+            // Login user and redirect to qr
+            $this->guard()->login(User::whereEmail($request->email)->first());
+            // Handle as QR
+            return $this->addQrToUser($qr);
+        }
+
+        // Validate
+        $validator = Validator::make($request->all(), [
+            'name'              => 'required|max:255',
+            'email'             => 'required|email|max:255'
+        ]);
+        if ($validator->fails()) {
+            return redirect(route('home'))->withInput($request->only('email, name'))->withErrors($validator->errors())->with('popupFeedback', true);
+        }
+
+        // Create
+        try{
+            $user = new User();
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->password = Str::random(12);
+            $user->save();
+        } catch(Exception $e){
+            return redirect(route('home'))->withInput($request->only('email, name'))->withErrors(['general' => 'Ocurrió un error — Por favor intentá nuevamente.'])->with('popupFeedback', true);
+        }
+
+        // Register Event
+        event(new Registered($user));
+
+        // Login
+        $this->guard()->login($user);
+
+        // Handle QR
+        return $this->addQrToUser($qr);
+    }
+
+    /**
      * Handle a registration request for the application. TRADICTIONAL
      *
      * @param \Illuminate\Http\Request $request
@@ -132,7 +180,7 @@ class RegisterController extends Controller
 
         // Login
         $this->guard()->login($user);
-        
+
         // Handle QR
         return $this->handleQrSession();
     }
@@ -210,7 +258,7 @@ class RegisterController extends Controller
 
         // Login
         $this->guard()->login($user);
-        
+
         // Handle QR
         return $this->handleQrSession('/#');
     }
