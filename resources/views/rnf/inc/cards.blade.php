@@ -44,7 +44,7 @@
             <div class="spc-sc-content-wrapper">
                 <div class="spc-scc-content">
                     <h5>Episodio 3</h5>
-                    <h3></h3>
+                    <h3>Cucho Parisi y Joaquín Levinton</h3>
                     <p>El equipo de RNF invita hoy a Cucho Parisi y Joaquín Levinton.</p>
                     <a target="_blank" class="btn btn-primary mt-3" href="https://youtu.be/bgMfgeqCx_8"><i class="la la-youtube"></i> Ver episodio</a>
                 </div>
