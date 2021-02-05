@@ -93,7 +93,7 @@ class ProductsCrudCrontroller extends CrudController
             CRUD::field('timeframe')->label('Duración de venta')->type('select2_from_array')->options([
                 'always' => 'Permanente',
                 'stock' => 'Hasta que termine stock',
-                'date' => 'Diración específica',
+                'date' => 'Duración específica',
             ])->size(5);
             CRUD::field(['starts', 'ends'])->label('Duración')->type('date_range')->hint('* Aplica siempre y cuando el tipo de venta sea Subasta.')->default([Carbon::today(), Carbon::today()->addWeek()])->date_range_options([
                 'timePicker' => true,
