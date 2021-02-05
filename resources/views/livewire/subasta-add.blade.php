@@ -1,5 +1,5 @@
 <div wire:poll.10s="loadInfo">
-    @if(!$product->ends->isPast())
+    @if(!$product->ends->isPast() && $product->starts->isPast())
     <div class="d-flex align-items-center justify-content-between">
         <div style="background-color: #161616;">
             <button wire:click="minus" class="btn btn-dark mt-0 px-0" style="display: inline; width: 40px;" key="button-minus">
