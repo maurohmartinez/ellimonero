@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="shop-banner-area pt-4">
+<!-- <section class="shop-banner-area pt-4">
     <div class="banner-area-bg bg-primary">
         <div class="container">
             <div class="row px-4">
@@ -14,7 +14,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 <div class="shop-card-area py-70 py-md-50">
     <div class="container">
         <div class="row">
