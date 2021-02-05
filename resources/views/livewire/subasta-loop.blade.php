@@ -19,18 +19,19 @@
                 </h5>
             </div>
             <div class="mt-2">
-                {{ Str::words($product->description, 50) }}
+                {{ $product->description }}
             </div>
             @if($product->stock > 0)
-            <!-- <div class="mt-4"> -->
-                {{-- @livewire('subasta-add', ['product_id' => $product->id], key('subasta-add-' . $product->id)) --}}
-            <!-- </div> -->
+            @if(backpack_auth()->check())
+            @livewire('subasta-add', ['product_id' => $product->id], key('subasta-add-' . $product->id))
+            @endif
             @endif
         </div>
     </div>
 </div>
 
 @push('scripts')
+@if($product->starts->isPast())
 <script>
     // Set the date we're counting down to
     window['countDownDatetimer_{{ $product->slug }}'] = "{{ $product->ends->isoFormat('x') }}";
@@ -65,4 +66,9 @@
     }
     window['functionCountDownDatetimer_{{ $product->slug }}']();
 </script>
+@else
+<script>
+    document.getElementById("timer-{{ $product->slug }}").innerHTML = "Comienza el {{ $product->starts->isoFormat('LLL') }}";
+</script>
+@endif
 @endpush
