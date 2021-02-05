@@ -49,15 +49,6 @@
         </div>
     </div>
 </section>
-<!-- <div class="product-information-tabs-area pb-md-50">
-    <div class="container">
-        <div class="tab-content product-nav-tab" id="pills-tabContent">
-            <div class="tab-pane fade show active product-nav-tab-content" id="description">
-                <div class="content-product">{!! $product->content !!}</div>
-            </div>
-        </div>
-    </div>
-</div> -->
 @endsection
 
 @section('scripts')
