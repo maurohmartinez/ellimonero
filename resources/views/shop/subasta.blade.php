@@ -18,7 +18,6 @@
 <div class="shop-card-area py-70 py-md-50">
     <div class="container">
         <div class="row">
-        {{dd($products)}}
             @if(count($products) > 0)
             <div class="shop-card-area py-70 py-md-50">
                 <div class="container">
