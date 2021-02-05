@@ -23,7 +23,9 @@
             </div>
             @if($product->stock > 0)
             @if(backpack_auth()->check())
-            @livewire('subasta-add', ['product_id' => $product->id], key('subasta-add-' . $product->id))
+            <div class="mt-4">
+                @livewire('subasta-add', ['product_id' => $product->id], key('subasta-add-' . $product->id))
+            </div>
             @endif
             @endif
         </div>
