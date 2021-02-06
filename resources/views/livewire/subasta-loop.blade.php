@@ -1,7 +1,6 @@
 <div>
     <div class="single-shop-card">
         <a href="{{ route('product', ['id' => $product->id]) }}">
-            <div style="position: absolute; top: 0px; right: 15px;" class="bg-danger text-light p-2"><i class="la la-clock"></i> <span wire:ignore id="timer-{{ $product->slug }}"></span></div>
             <div>
                 @if($product->images)
                 @if(count($product->images) > 0)
@@ -9,6 +8,7 @@
                 @endif
                 @endif
             </div>
+            <div class="bg-danger text-light text-center p-2"><i class="la la-clock"></i> <span wire:ignore id="timer-{{ $product->slug }}"></span></div>
         </a>
         <div class="single-shop-card-content section-bg">
             <div class="d-flex justify-content-between">

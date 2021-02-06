@@ -6,7 +6,6 @@
         <div class="row align-items-center">
             <div class="col-lg-5">
                 <div class="product-information-img">
-                    <div style="position: absolute; top: 0px; right: 0px;" class="bg-danger text-light p-2"><i class="la la-clock"></i> <span wire:ignore id="timer-{{ $product->slug }}"></span></div>
                     @if($product->stock == 0 && $product->type == 'regular')
                     <img style="position: absolute; width: 200px;" src="{{ asset('images/sold-out-banner.png') }}" alt="Sold Out">
                     @endif
@@ -19,6 +18,7 @@
                     @else
                     <div><img src="{{ asset($product->images[0]['image_url']) }}" alt="image"></div>
                     @endif
+                    <div class="text-center bg-danger text-light p-2"><i class="la la-clock"></i> <span wire:ignore id="timer-{{ $product->slug }}"></span></div>
                 </div>
             </div>
             <div class="col-lg-7">
