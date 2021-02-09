@@ -211,7 +211,7 @@ class Product extends Model
             return $this->attributes['winner'] = '-';
         }
         $user = User::find($bid->user_id);
-        return $this->attributes['winner'] = $user->email . ' | $' . $bid->user_id;
+        return $this->attributes['winner'] = $user->email . ' | $' . $bid->bid;
     }
     
     /**
