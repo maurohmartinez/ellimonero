@@ -211,6 +211,16 @@ class Product extends Model
             return $this->attributes['winner'] = '-';
         }
         $user = User::find($bid->user_id);
-        return $this->attributes['winner'] = $user->email . ' $' . $bid->user_id;
+        return $this->attributes['winner'] = $user->email . ' | $' . $bid->user_id;
+    }
+    
+    /**
+     * Get cant de bids
+     *
+     * @return object
+     */
+    public function getBidsCountAttribute()
+    {
+        return $this->attributes['bids_count'] = $this->bids()->count();
     }
 }

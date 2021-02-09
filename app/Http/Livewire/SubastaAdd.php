@@ -80,7 +80,6 @@ class SubastaAdd extends Component
             $this->emit('feedback-success', ['title' => 'La oferta fue agregada. ¡Buena suerte!']);
             $this->loadInfo();
         } catch (Exception $e) {
-            dd($e->getMessage());
             $this->emit('feedback-error', ['title' => 'Ocurrió un error — Quizás alguien acaba de ofertar, intentá nuevamente.']);
         }
     }

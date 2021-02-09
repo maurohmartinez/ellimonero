@@ -31,6 +31,7 @@ class ProductsCrudCrontroller extends CrudController
                 'auction' => 'Subasta',
                 ]);
             CRUD::column('winner')->label('Oferta ganadora');
+            CRUD::column('bids_count')->label('Ofertas');
             CRUD::column('active')->label('Activo')->type('boolean')->wrapper([
                 'class' => function ($crud, $column, $entry, $related_key) {
                     if ($entry['seen'] == false) {
