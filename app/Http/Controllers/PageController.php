@@ -32,11 +32,11 @@ class PageController extends Controller
     }
     
     /**
-     * Show subasta
+     * Show subasta 
      */
     public function subasta()
     {
-        $products = Product::activo()->onTime()->where('type', 'auction')->orderBy('lft', 'ASC')->onTime()->get();
+        $products = Product::activo()->where('type', 'auction')->orderBy('lft', 'ASC')->get();
         $this->data['title'] = 'Subasta';
         return view('shop.subasta', ['products' => $products, 'data' => $this->data]);
     }

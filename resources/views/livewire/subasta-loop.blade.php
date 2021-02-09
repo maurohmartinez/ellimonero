@@ -1,7 +1,6 @@
 <div>
     <div class="single-shop-card">
         <a href="{{ route('product', ['id' => $product->id]) }}">
-            <div style="position: absolute; top: 0px; right: 15px;" class="bg-danger text-light p-2"><i class="la la-clock"></i> <span wire:ignore id="timer-{{ $product->slug }}"></span></div>
             <div>
                 @if($product->images)
                 @if(count($product->images) > 0)
@@ -9,6 +8,7 @@
                 @endif
                 @endif
             </div>
+            <div class="bg-danger text-light text-center p-2"><i class="la la-clock"></i> <span wire:ignore id="timer-{{ $product->slug }}"></span></div>
         </a>
         <div class="single-shop-card-content section-bg">
             <div class="d-flex justify-content-between">
@@ -19,18 +19,21 @@
                 </h5>
             </div>
             <div class="mt-2">
-                {{ Str::words($product->description, 50) }}
+                {{ $product->description }}
             </div>
             @if($product->stock > 0)
-            <!-- <div class="mt-4"> -->
-                {{-- @livewire('subasta-add', ['product_id' => $product->id], key('subasta-add-' . $product->id)) --}}
-            <!-- </div> -->
+            @if(backpack_auth()->check())
+            <div class="mt-4">
+                @livewire('subasta-add', ['product_id' => $product->id], key('subasta-add-' . $product->id))
+            </div>
+            @endif
             @endif
         </div>
     </div>
 </div>
 
 @push('scripts')
+@if($product->starts->isPast())
 <script>
     // Set the date we're counting down to
     window['countDownDatetimer_{{ $product->slug }}'] = "{{ $product->ends->isoFormat('x') }}";
@@ -65,4 +68,9 @@
     }
     window['functionCountDownDatetimer_{{ $product->slug }}']();
 </script>
+@else
+<script>
+    document.getElementById("timer-{{ $product->slug }}").innerHTML = "Comienza el {{ $product->starts->isoFormat('LLL') }}";
+</script>
+@endif
 @endpush

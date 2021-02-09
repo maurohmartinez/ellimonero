@@ -1,21 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="shop-banner-area pt-4">
-    <div class="banner-area-bg bg-primary">
-        <div class="container">
-            <div class="row px-4">
-                <div class="shop-banner d-flex align-items-center justify-content-between">
-                    <div class="shop-banner-content">
-                        <h2 class="text-dark">Subasta</h2>
-                        <p class="text-dark">de productos</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<div class="shop-card-area py-70 py-md-50">
+<div class="shop-card-area pb-70 pb-md-50">
     <div class="container">
         <div class="row">
             @if(count($products) > 0)
