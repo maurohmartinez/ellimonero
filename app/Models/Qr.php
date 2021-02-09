@@ -41,10 +41,10 @@ class Qr extends Model
      * @var array
      */
     protected $casts = [
-        'starts' => 'datetime',
-        'ends' => 'datetime',
-        'always_visible' => 'boolean',
-        'active' => 'boolean',
+        'starts'            => 'datetime',
+        'ends'              => 'datetime',
+        'always_visible'    => 'boolean',
+        'active'            => 'boolean',
     ];
 
     /**

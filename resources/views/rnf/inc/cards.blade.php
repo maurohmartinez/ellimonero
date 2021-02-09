@@ -51,6 +51,23 @@
             </div>
         </div>
         <div class="p-4"></div>
+        <div class="spc-single-card-wrapper mb-4">
+            <div class="spc-sc-img">
+                <a target="_blank" href="https://youtu.be/nvBhOF6Zs5c" style="position: relative;">
+                    <i class="la la-youtube text-light" style="position: absolute; font-size: 50px; top: 50%; left: 50%; transform: translate(-50%, -50%);"></i>
+                    <img src="{{ asset('images/rnf/episodio_04.jpg') }}" alt="Coti Sorokin">
+                </a>
+            </div>
+            <div class="spc-sc-content-wrapper">
+                <div class="spc-scc-content">
+                    <h5>Episodio 4</h5>
+                    <h3>Fabiana Cantilo</h3>
+                    <p>El equipo de RNF invita hoy a Fabiana Cantilo.</p>
+                    <a target="_blank" class="btn btn-primary mt-3" href="https://youtu.be/nvBhOF6Zs5c"><i class="la la-youtube"></i> Ver episodio</a>
+                </div>
+            </div>
+        </div>
+        <div class="p-4"></div>
         <a class="btn btn-primary btn-block my-4" href="/">Tienda Limonera</a>
     </div>
 </div>

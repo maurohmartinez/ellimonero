@@ -198,4 +198,19 @@ class Product extends Model
     {
         return $this->attributes['final_price'] = $this->price_discount ?? $this->price;
     }
+    
+    /**
+     * Get winner bid and user
+     *
+     * @return object
+     */
+    public function getWinnerAttribute()
+    {
+        $bid = $this->bids()->orderBy('bid', 'desc')->first();
+        if(!$bid){
+            return $this->attributes['winner'] = '-';
+        }
+        $user = User::find($bid->user_id);
+        return $this->attributes['winner'] = $user->email . ' $' . $bid->user_id;
+    }
 }

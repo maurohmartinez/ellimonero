@@ -25,11 +25,12 @@ class ProductsCrudCrontroller extends CrudController
         CRUD::operation(['list', 'show'], function () {
 
             CRUD::column('name')->label('Nombre');
-            CRUD::column('price')->label('Precio')->type('number')->prefix('$');
+            CRUD::column('price')->label('Precio base')->type('number')->prefix('$');
             CRUD::column('type')->label('Tipo')->type('select_from_array')->options([
                 'regular' => 'Venta inmediata',
                 'auction' => 'Subasta',
-            ]);
+                ]);
+            CRUD::column('winner')->label('Oferta ganadora');
             CRUD::column('active')->label('Activo')->type('boolean')->wrapper([
                 'class' => function ($crud, $column, $entry, $related_key) {
                     if ($entry['seen'] == false) {
