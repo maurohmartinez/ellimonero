@@ -55,7 +55,7 @@ class User extends Authenticatable
         $result = '';
         $str = $this->name;
         $words = explode(' ', $str);
-        foreach($words as $name){
+        foreach ($words as $name) {
             $result .= strtoupper(trim($name[0]));
         }
         return $this->attributes['first_letters'] = $result;
@@ -69,7 +69,7 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Models\Qr');
     }
-    
+
     /**
      * Cart relationship
      * 
@@ -78,7 +78,7 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Cart', 'user_id', 'id');
     }
-    
+
     /**
      * Payments relationship
      * 
@@ -87,7 +87,7 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Payment', 'user_id', 'id');
     }
-    
+
     /**
      * Orders relationship
      * 
@@ -95,5 +95,15 @@ class User extends Authenticatable
     public function orders()
     {
         return $this->hasMany('App\Models\Order', 'user_id', 'id');
+    }
+
+    /**
+     * Include export button in Admin List Operation.
+     *
+     * @var string
+     */
+    public function exportButton()
+    {
+        return '<a href="' . route('users.export') . '" class="btn btn-outline-primary mr-2"><i class="nav-icon fa fa-cloud-download"></i> Download excel</button>';
     }
 }
